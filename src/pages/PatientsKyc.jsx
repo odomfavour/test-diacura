@@ -36,8 +36,10 @@ const PatientsKyc = () => {
                     </div>
                 </div>
                 <div className="mt-[-30px] lg:flex lg:justify-center lg:ml-[399px] lg:gap-6 p-[60px]">
-                    <Link></Link>
-                    <button className="lg:w-[273px] lg:h-[56px] text-[#107BC0] border text-[20px] rounded font-open-sans  font-bold" style={{ borderWidth: '1px', borderStyle: 'solid', borderColor: '#107BC0' }}>Back</button>
+                    <Link to="">
+                        <button className="lg:w-[273px] lg:h-[56px] text-[#107BC0] border text-[20px] rounded font-open-sans  font-bold" style={{ borderWidth: '1px', borderStyle: 'solid', borderColor: '#107BC0' }}>Back</button>
+                    </Link>
+
                     <Link to="/patientsmed">
                         <button className="lg:w-[273px] lg:h-[56px]  bg-[#107BC0] text-[20px] rounded text-[#ffff] font-open-sans  font-bold">Next</button></Link>
 
