@@ -9,7 +9,7 @@ const PatientKYC = ({ children, heading, current}) => {
       <div className="pb-[1.5rem] md:pb-[2.5rem]">
         <img src={logo} alt="Dia-cura Med logo" />
       </div>
-      <div className="max-w-[70.8125rem] mx-auto mb-[2.69rem] text-center">
+      <div className={`max-w-[70.8125rem] mx-auto mb-[2.69rem] ${current === 1 ? "" : "md:mb-[3.81rem]"} text-center`}>
         <h1 className="text-primary-color-light-blue-300 text-[1.4rem] md:text-[2rem] font-semibold leading-normal mb-[1.5rem] md:mb-[2rem]">
           {heading}
         </h1>

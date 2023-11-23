@@ -70,8 +70,8 @@ const PatientsKycStepThree = () => {
         <div className="max-w-[67.1875rem] mx-auto py-[2rem] px-[1.3rem] md:px-[1.5rem] lg:px-[3.75rem] md:py-[3rem] rounded-[1.25rem] bg-light-blue shadow-xxl">
           {/* Form container */}
           <form onSubmit={handleSubmit}>
-            <div className="flex flex-col gap-[1.5rem] md:gap-[3.5rem] mb-[1.38rem]">
-              <div className="flex flex-col md:flex-row items-start gap-[1.5rem] lg:gap-[6.5rem]">
+            <div className="flex flex-col gap-[1.5rem] md:gap-[3.5rem] mb-[1.38rem] md:mb-[3.12rem]">
+              <div className="flex flex-col md:flex-row items-start gap-[1.5rem] xl:gap-[6.5rem]">
                 <div className="max-w-[28.8125rem] w-full">
                   <label
                     htmlFor="diagnosisDate"
