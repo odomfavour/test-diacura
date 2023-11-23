@@ -23,7 +23,7 @@
 }
 
 .patient-kyc-input {
-    @apply w-full bg-white border border-[#94A3B8] rounded-[0.5rem] px-[0.75rem] py-[0.8rem] md:py-[1rem] text-base leading-[1.5rem] outline-none;
+    @apply w-full bg-white border rounded-[0.5rem] px-[0.75rem] py-[0.8rem] md:py-[1rem] text-base leading-[1.5rem] outline-none;
 }
 
 /* Diabetes type */

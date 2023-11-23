@@ -1,29 +1,113 @@
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/icons/patients-kyc/logo.svg";
+import { progressBar } from "../../utils/data";
+import { UsePatientKycContext } from "../../context/PatientKycContext";
 
-const progressBar = [
-  {
-    step: 1,
-  },
-  {
-    step: 2,
-  },
-  {
-    step: 3,
-  },
-  {
-    step: 4,
-  },
-  {
-    step: 5,
-  },
-  {
-    step: 6,
-  },
-];
+//Default form and form error values
+const defaultPersonalInformation = {
+  firstName: "",
+  lastName: "",
+  phoneNumber: "",
+  dateOfBirth: "",
+  age: "",
+  gender: "",
+};
 
-const progress = [1];
+const errors = {
+  firstName: false,
+  lastName: false,
+  phoneNumber: false,
+  dateOfBirth: false,
+  age: false,
+  gender: false,
+};
 
 const PatientsKycStepOne = () => {
+  const [personalInformation, setPersonalInformation] = useState(
+    defaultPersonalInformation
+  );
+  const [formErrors, setFormErrors] = useState(errors);
+  const { dispatch } = UsePatientKycContext();
+  const navigate = useNavigate();
+
+  //Form validation regular expressions
+  const NAME_REGEX = /^[a-zA-Z][a-zA-Z]{2,}$/;
+  const PHONE_REGEX = /^\d{11}$/;
+  const AGE_REGEX = /^\d{1,3}$/;
+
+  //Set form data properties values
+  const setProperty = (e) => {
+    setPersonalInformation({
+      ...personalInformation,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  //Handle form submission and validate form data
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let validateForm = {};
+    let isFormValidated = true;
+
+    if (!NAME_REGEX.test(personalInformation.firstName.trim())) {
+      validateForm = { ...validateForm, firstName: true };
+      isFormValidated = false;
+    } else {
+      validateForm = { ...validateForm, firstName: false };
+    }
+
+    if (!NAME_REGEX.test(personalInformation.lastName.trim())) {
+      validateForm = { ...validateForm, lastName: true };
+      isFormValidated = false;
+    } else {
+      validateForm = { ...validateForm, lastName: false };
+    }
+
+    if (!personalInformation.dateOfBirth) {
+      validateForm = { ...validateForm, dateOfBirth: true };
+      isFormValidated = false;
+    } else {
+      validateForm = { ...validateForm, dateOfBirth: false };
+    }
+
+    if (!PHONE_REGEX.test(personalInformation.phoneNumber.trim())) {
+      validateForm = { ...validateForm, phoneNumber: true };
+      isFormValidated = false;
+    } else {
+      validateForm = { ...validateForm, phoneNumber: false };
+    }
+
+    if (!AGE_REGEX.test(personalInformation.age.trim())) {
+      validateForm = { ...validateForm, age: true };
+      isFormValidated = false;
+    } else {
+      validateForm = { ...validateForm, age: false };
+    }
+
+    if (!personalInformation.gender) {
+      validateForm = { ...validateForm, gender: true };
+      isFormValidated = false;
+    } else {
+      validateForm = { ...validateForm, gender: false };
+    }
+    //Display errors if any
+    setFormErrors(validateForm);
+
+    //Submit valid personal information
+    if (isFormValidated) {
+      dispatch({
+        type: "ADD_PERSONAL_INFORMATION",
+        payload: personalInformation,
+      });
+      setPersonalInformation(defaultPersonalInformation);
+      navigate("/patients-kyc-step-two");
+    } else {
+      return;
+    }
+  };
+
   return (
     <section>
       <div className="bg-[#F6FCFF] py-[1.75rem] px-[1.5rem] md:pt-[1.75rem] md:pb-[6.56rem] md:px-[3.75rem] ">
@@ -47,7 +131,7 @@ const PatientsKycStepOne = () => {
                 <li
                   key={step.step}
                   className={`max-w-[8.1875rem] w-1/6 h-[0.9375rem] ${
-                    progress.includes(step.step)
+                    step.step === 1
                       ? "bg-primary-color-light-blue-300"
                       : "bg-[#CFE5F2]"
                   }`}
@@ -64,7 +148,7 @@ const PatientsKycStepOne = () => {
           </h2>
 
           {/* Form container */}
-          <form action="">
+          <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-[1.5rem] md:gap-[1.94rem] mb-[2.5rem] md:mb-[3.25rem]">
               <div className="patient-kyc-input-row">
                 <div className="patient-kyc-input-col">
@@ -74,9 +158,23 @@ const PatientsKycStepOne = () => {
                   <input
                     type="text"
                     placeholder="First Name"
-                    className="patient-kyc-input"
+                    className={`patient-kyc-input ${
+                      formErrors.firstName
+                        ? "border-red-600"
+                        : "border-[#94A3B8]"
+                    }`}
                     id="firstName"
+                    name="firstName"
+                    value={personalInformation.firstName}
+                    onChange={setProperty}
                   />
+                  <span
+                    className={`text-red-600 ${
+                      formErrors.firstName ? "block" : "hidden"
+                    }`}
+                  >
+                    First name Must be more than 2 characters, letters only
+                  </span>
                 </div>
                 <div className="patient-kyc-input-col">
                   <label htmlFor="lastName" className="patient-kyc-label">
@@ -85,9 +183,23 @@ const PatientsKycStepOne = () => {
                   <input
                     type="text"
                     placeholder="Last Name"
-                    className="patient-kyc-input"
+                    className={`patient-kyc-input ${
+                      formErrors.lastName
+                        ? "border-red-600"
+                        : "border-[#94A3B8]"
+                    }`}
                     id="lastName"
+                    name="lastName"
+                    value={personalInformation.lastName}
+                    onChange={setProperty}
                   />
+                  <span
+                    className={`text-red-600 ${
+                      formErrors.lastName ? "block" : "hidden"
+                    }`}
+                  >
+                    Last name Must be more than 2 characters, letters only
+                  </span>
                 </div>
               </div>
               <div className="patient-kyc-input-row">
@@ -98,9 +210,23 @@ const PatientsKycStepOne = () => {
                   <input
                     type="tel"
                     placeholder="Phone Number"
-                    className="patient-kyc-input"
+                    className={`patient-kyc-input ${
+                      formErrors.phoneNumber
+                        ? "border-red-600"
+                        : "border-[#94A3B8]"
+                    }`}
                     id="phoneNumber"
+                    name="phoneNumber"
+                    value={personalInformation.phoneNumber}
+                    onChange={setProperty}
                   />
+                  <span
+                    className={`text-red-600 ${
+                      formErrors.phoneNumber ? "block" : "hidden"
+                    }`}
+                  >
+                    Phone number must consist of 11 digits
+                  </span>
                 </div>
                 <div className="patient-kyc-input-col">
                   <label htmlFor="dateOfBirth" className="patient-kyc-label">
@@ -108,9 +234,23 @@ const PatientsKycStepOne = () => {
                   </label>
                   <input
                     type="date"
-                    className="patient-kyc-input"
+                    className={`patient-kyc-input ${
+                      formErrors.dateOfBirth
+                        ? "border-red-600"
+                        : "border-[#94A3B8]"
+                    }`}
                     id="dateOfBirth"
+                    name="dateOfBirth"
+                    value={personalInformation.dateOfBirth}
+                    onChange={setProperty}
                   />
+                  <span
+                    className={`text-red-600 ${
+                      formErrors.dateOfBirth ? "block" : "hidden"
+                    }`}
+                  >
+                    Enter a valid date of birth
+                  </span>
                 </div>
               </div>
               <div className="patient-kyc-input-row">
@@ -121,32 +261,89 @@ const PatientsKycStepOne = () => {
                   <input
                     type="text"
                     placeholder="Age"
-                    className="patient-kyc-input"
+                    className={`patient-kyc-input ${
+                      formErrors.age ? "border-red-600" : "border-[#94A3B8]"
+                    }`}
                     id="age"
+                    name="age"
+                    value={personalInformation.age}
+                    onChange={setProperty}
                   />
+                  <span
+                    className={`text-red-600 ${
+                      formErrors.age ? "block" : "hidden"
+                    }`}
+                  >
+                    Enter a valid age, age must consist of digits only.
+                  </span>
                 </div>
                 <div className="patient-kyc-input-col">
                   <label htmlFor="gender" className="patient-kyc-label">
                     Gender
                   </label>
-                  <div className="w-full flex items-center bg-white border border-[#94A3B8] rounded-[0.5rem]">
-                    <button className="inline-block w-1/2 py-[0.8rem] md:py-[1rem] text-[0.875rem] text-primary-color-light-blue-300 font-medium leading-[1.25rem] border-b-[0.1875rem] border-b-primary-color-light-blue-300">
+                  <div
+                    className={`w-full flex items-center bg-white border rounded-[0.5rem] ${
+                      formErrors.gender ? "border-red-600" : "border-[#94A3B8]"
+                    }`}
+                  >
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setPersonalInformation({
+                          ...personalInformation,
+                          gender: "Male",
+                        })
+                      }
+                      className={`inline-block w-1/2 py-[0.8rem] md:py-[1rem] text-[0.875rem] font-medium leading-[1.25rem] outline-none ${
+                        personalInformation.gender === "Male"
+                          ? "border-b-[0.1875rem] border-b-primary-color-light-blue-300 text-primary-color-light-blue-300"
+                          : "text-[#666]"
+                      }`}
+                    >
                       Male
                     </button>
-                    <button className="inline-block w-1/2 py-[0.8rem] md:py-[1rem] text-[0.875rem] text-[#666] font-medium leading-[1.25rem]">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setPersonalInformation({
+                          ...personalInformation,
+                          gender: "Female",
+                        })
+                      }
+                      className={`inline-block w-1/2 py-[0.8rem] md:py-[1rem] text-[0.875rem] font-medium leading-[1.25rem] outline-none ${
+                        personalInformation.gender === "Female"
+                          ? "border-b-[0.1875rem] border-b-primary-color-light-blue-300 text-primary-color-light-blue-300"
+                          : "text-[#666]"
+                      }`}
+                    >
                       Female
                     </button>
                   </div>
+                  <span
+                    className={`text-red-600 ${
+                      formErrors.gender ? "block" : "hidden"
+                    }`}
+                  >
+                    Please select your gender
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* buttons container */}
             <div className="flex justify-end items-center gap-[1rem]">
-              <button className="w-[10rem] h-[3rem] md:h-[3.5rem] rounded-[0.25rem] border border-primary-color-light-blue-300 text-primary-color-light-blue-300 font-bold text-[1.25rem] hover:text-white hover:bg-primary-color-light-blue-300 transition-all duration-300 ease-in-out">
-                Back
-              </button>
-              <button className="w-[10rem] h-[3rem] md:h-[3.5rem] rounded-[0.25rem] border border-primary-color-light-blue-300 text-white font-bold text-[1.25rem] bg-primary-color-light-blue-300 hover:text-primary-color-light-blue-300 hover:bg-transparent">
+              <Link to={"/"}>
+                <button
+                  type="button"
+                  className="w-[10rem] h-[3rem] md:h-[3.5rem] rounded-[0.25rem] border border-primary-color-light-blue-300 text-primary-color-light-blue-300 font-bold text-[1.25rem] hover:text-white hover:bg-primary-color-light-blue-300 transition-all duration-300 ease-in-out"
+                >
+                  Back
+                </button>
+              </Link>
+              <button
+                type="submit"
+                className="w-[10rem] h-[3rem] md:h-[3.5rem] rounded-[0.25rem] border border-primary-color-light-blue-300 text-white font-bold text-[1.25rem] bg-primary-color-light-blue-300 hover:text-primary-color-light-blue-300 hover:bg-transparent"
+              >
                 Next
               </button>
             </div>
