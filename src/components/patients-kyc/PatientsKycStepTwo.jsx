@@ -1,8 +1,8 @@
-import logo from "../../assets/icons/patients-kyc/logo.svg";
-import { progressBar } from "../../utils/data";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UsePatientKycContext } from "../../context/PatientKycContext";
+import PatientKYC from "../../layouts/PatientKYC";
+import PatientsKycButtons from "./PatientsKycButtons";
 
 const PatientsKycStepTwo = () => {
   const [diabetesType, setDiabetesType] = useState("");
@@ -17,14 +17,15 @@ const PatientsKycStepTwo = () => {
   //Form validation regular expression
   const DIABETES_TYPE_REGEX = /^[a-zA-Z][a-zA-Z]{2,}$/;
 
+  //Set other diabetics types not listed
   const handleOtherDiabetesTypes = (e) => {
     setOtherDiabetesTypes(e.target.value);
   };
 
+  //Handle form submission and validate form data
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // validate form
     if (diabetesType === "") {
       setFormError({ ...formError, diabetesTypeError: true });
     } else if (diabetesType === "Others") {
@@ -33,44 +34,18 @@ const PatientsKycStepTwo = () => {
       } else {
         setFormError({ ...formError, otherDiabetesTypeError: false });
         dispatch({ type: "ADD_DIABETES_TYPE", payload: otherDiabetesTypes });
-        navigate("/patients-kyc-step-three")
+        navigate("/patients-kyc-step-three");
       }
     } else {
       setFormError({ ...formError, diabetesTypeError: false });
       dispatch({ type: "ADD_DIABETES_TYPE", payload: diabetesType });
-      navigate("/patients-kyc-step-three")
+      navigate("/patients-kyc-step-three");
     }
   };
 
   return (
     <section>
-      <div className="bg-[#F6FCFF] py-[1.75rem] px-[1.5rem] md:pt-[1.75rem] md:pb-[6rem] md:px-[3.75rem] ">
-        {/* Header */}
-        <div>
-          <div className="pb-[1.5rem] md:pb-[2.5rem]">
-            <img src={logo} alt="Dia-cura Med logo" />
-          </div>
-          <div className="max-w-[70.8125] mx-auto mb-[2.69rem] md:mb-[4rem] text-center">
-            <h3 className="text-[#020D14] text-[1.1rem] md:text-[1.5rem] font-semibold leading-normal mb-[1rem]">
-              Step 2 of 6
-            </h3>
-
-            {/* steps progress bar */}
-            <ul className="flex items-center justify-center gap-[2px]">
-              {progressBar.map((step) => (
-                <li
-                  key={step.step}
-                  className={`max-w-[8.1875rem] w-1/6 h-[0.9375rem] ${
-                    step.step <= 2
-                    ? "bg-primary-color-light-blue-300"
-                      : "bg-[#CFE5F2]"
-                  }`}
-                ></li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
+      <PatientKYC current={2} heading={""}>
         {/* Diabetes Type */}
         <div className="max-w-[67.125rem] mx-auto py-[2rem] px-[1.3rem] md:px-[2rem] lg:px-[3.81rem] md:py-[5rem] rounded-[1.25rem] bg-light-blue shadow-xxl">
           <h2 className="text-primary-color-light-blue-300 text-[1.2rem] md:text-[1.5rem] font-semibold leading-normal mb-[2rem] md:mb-[3.38rem]">
@@ -208,25 +183,10 @@ const PatientsKycStepTwo = () => {
             </div>
 
             {/* buttons container */}
-            <div className="flex justify-end items-center gap-[1rem]">
-              <Link to={"/patients-kyc-step-one"}>
-                <button
-                  type="button"
-                  className="w-[10rem] h-[3rem] md:h-[3.5rem] rounded-[0.25rem] border border-primary-color-light-blue-300 text-primary-color-light-blue-300 font-bold text-[1.25rem] hover:text-white hover:bg-primary-color-light-blue-300 transition-all duration-300 ease-in-out outline-none"
-                >
-                  Back
-                </button>
-              </Link>
-              <button
-                type="submit"
-                className="w-[10rem] h-[3rem] md:h-[3.5rem] rounded-[0.25rem] border border-primary-color-light-blue-300 text-white font-bold text-[1.25rem] bg-primary-color-light-blue-300 hover:text-primary-color-light-blue-300 hover:bg-transparent outline-none"
-              >
-                Next
-              </button>
-            </div>
+            <PatientsKycButtons previous={"patients-kyc-step-one"} />
           </form>
         </div>
-      </div>
+      </PatientKYC>
     </section>
   );
 };

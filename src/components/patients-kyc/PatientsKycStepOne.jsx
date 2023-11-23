@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/icons/patients-kyc/logo.svg";
-import { progressBar } from "../../utils/data";
+import { useNavigate } from "react-router-dom";
 import { UsePatientKycContext } from "../../context/PatientKycContext";
+import PatientKYC from "../../layouts/PatientKYC";
+import PatientsKycButtons from "./PatientsKycButtons";
 
 //Default form and form error values
-const defaultPersonalInformation = {
+const defaultPersonalInfo = {
   firstName: "",
   lastName: "",
   phoneNumber: "",
@@ -24,9 +24,7 @@ const errors = {
 };
 
 const PatientsKycStepOne = () => {
-  const [personalInformation, setPersonalInformation] = useState(
-    defaultPersonalInformation
-  );
+  const [personalInformation, setPersonalInformation] = useState(defaultPersonalInfo);
   const [formErrors, setFormErrors] = useState(errors);
   const { dispatch } = UsePatientKycContext();
   const navigate = useNavigate();
@@ -34,7 +32,6 @@ const PatientsKycStepOne = () => {
   //Form validation regular expressions
   const NAME_REGEX = /^[a-zA-Z][a-zA-Z]{2,}$/;
   const PHONE_REGEX = /^\d{11}$/;
-  const AGE_REGEX = /^\d{1,3}$/;
 
   //Set form data properties values
   const setProperty = (e) => {
@@ -43,6 +40,9 @@ const PatientsKycStepOne = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  const heading = `I am Dr. Diacura-Med Tracker in order to be useful, I need to get to
+  know you better.`
 
   //Handle form submission and validate form data
   const handleSubmit = (e) => {
@@ -79,7 +79,7 @@ const PatientsKycStepOne = () => {
       validateForm = { ...validateForm, phoneNumber: false };
     }
 
-    if (!AGE_REGEX.test(personalInformation.age.trim())) {
+    if (personalInformation.age.trim() < 1 || personalInformation.age.trim() > 200) {
       validateForm = { ...validateForm, age: true };
       isFormValidated = false;
     } else {
@@ -101,7 +101,7 @@ const PatientsKycStepOne = () => {
         type: "ADD_PERSONAL_INFORMATION",
         payload: personalInformation,
       });
-      setPersonalInformation(defaultPersonalInformation);
+      setPersonalInformation(defaultPersonalInfo);
       navigate("/patients-kyc-step-two");
     } else {
       return;
@@ -110,37 +110,7 @@ const PatientsKycStepOne = () => {
 
   return (
     <section>
-      <div className="bg-[#F6FCFF] py-[1.75rem] px-[1.5rem] md:pt-[1.75rem] md:pb-[6.56rem] md:px-[3.75rem] ">
-        {/* Header */}
-        <div>
-          <div className="pb-[1.5rem] md:pb-[2.5rem]">
-            <img src={logo} alt="Dia-cura Med logo" />
-          </div>
-          <div className="max-w-[70.8125rem] mx-auto mb-[2.69rem] text-center">
-            <h1 className="text-primary-color-light-blue-300 text-[1.4rem] md:text-[2rem] font-semibold leading-normal mb-[1.5rem] md:mb-[2rem]">
-              I am Dr. Diacura-Med Tracker in order to be useful, I need to get
-              to know you better.
-            </h1>
-            <h3 className="text-[#020D14] text-[1.1rem] md:text-[1.5rem] font-semibold leading-normal mb-[1rem]">
-              Step 1 of 6
-            </h3>
-
-            {/* steps progress bar */}
-            <ul className="flex items-center justify-center gap-[2px]">
-              {progressBar.map((step) => (
-                <li
-                  key={step.step}
-                  className={`max-w-[8.1875rem] w-1/6 h-[0.9375rem] ${
-                    step.step === 1
-                      ? "bg-primary-color-light-blue-300"
-                      : "bg-[#CFE5F2]"
-                  }`}
-                ></li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
+      <PatientKYC current={1} heading={heading}>
         {/* Personal information */}
         <div className="max-w-[67.125rem] min-h-[37.4375rem] mx-auto py-[2rem] px-[1.3rem] md:px-[2rem] lg:px-[3.88rem] md:py-[2.88rem] rounded-[1.25rem] bg-light-blue shadow-xxl">
           <h2 className="text-primary-color-light-blue-300 text-[1.2rem] md:text-[1.5rem] font-semibold leading-normal mb-[2rem] md:mb-[4rem]">
@@ -234,6 +204,8 @@ const PatientsKycStepOne = () => {
                   </label>
                   <input
                     type="date"
+                    min={"1850-01-01"}
+                    max={ new Date().toISOString().split("T")[0]}
                     className={`patient-kyc-input ${
                       formErrors.dateOfBirth
                         ? "border-red-600"
@@ -331,25 +303,10 @@ const PatientsKycStepOne = () => {
             </div>
 
             {/* buttons container */}
-            <div className="flex justify-end items-center gap-[1rem]">
-              <Link to={"/"}>
-                <button
-                  type="button"
-                  className="w-[10rem] h-[3rem] md:h-[3.5rem] rounded-[0.25rem] border border-primary-color-light-blue-300 text-primary-color-light-blue-300 font-bold text-[1.25rem] hover:text-white hover:bg-primary-color-light-blue-300 transition-all duration-300 ease-in-out"
-                >
-                  Back
-                </button>
-              </Link>
-              <button
-                type="submit"
-                className="w-[10rem] h-[3rem] md:h-[3.5rem] rounded-[0.25rem] border border-primary-color-light-blue-300 text-white font-bold text-[1.25rem] bg-primary-color-light-blue-300 hover:text-primary-color-light-blue-300 hover:bg-transparent"
-              >
-                Next
-              </button>
-            </div>
+            <PatientsKycButtons previous={""}/>
           </form>
         </div>
-      </div>
+      </PatientKYC>
     </section>
   );
 };
