@@ -41,6 +41,6 @@ export const UsePatientKycContext = () => {
 };
 
 PatientKycContext.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
 };
 export default PatientKycContext;

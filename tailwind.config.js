@@ -6,6 +6,8 @@ export default {
       backgroundColor: {
         "primary-color-light-blue-300": "#107BC0",
         "light-blue": "rgba(207, 229, 242, 0.30)",
+        "dark-gray": "rgba(239, 239, 239, 0.70)",
+        "transparent-blue" : "rgba(16, 123, 192, 0.10)"
       },
       textColor: {
         "primary-color-light-blue-300": "#107BC0",

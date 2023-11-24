@@ -43,3 +43,21 @@
 .diabetes-type-radio-input {
     @apply w-[1.2rem] h-[1.2rem] lg:w-[2rem] lg:h-[2rem] outline-none;
 }
+
+/* Admin Dashboard */
+.admin-dashboard-tab {
+    @apply flex items-center gap-[0.5rem] pt-[1.19rem] pl-[1.19rem] pb-[1.31rem] rounded-l-[0.625rem] text-base w-[17rem] h-[4rem];
+}
+
+.admin-dashboard-tab-button {
+    @apply flex items-center gap-[0.5rem] outline-none font-semibold leading-normal;
+}
+
+.user-managements-tab {
+    @apply py-[1rem] px-[1.19rem] w-[14.8875rem] h-[3.5rem];
+}
+
+.user-managements-tab-button {
+    @apply flex items-center gap-[0.5rem] outline-none text-base font-semibold leading-normal;
+}
+
