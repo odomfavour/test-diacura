@@ -19,7 +19,8 @@ export default {
     },
     fontFamily: {
       "Open-sans": ['"Open sans"', "sans-serif"],
+      "dm-sans": ["DM Sans", "sans-serif"],
     },
   },
-    plugins: [],
+  plugins: [],
 };
