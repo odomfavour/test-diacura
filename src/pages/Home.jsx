@@ -10,9 +10,10 @@ const Home = () => {
     <>
       {/* <p>Dia-Cura Homepage</p> */}
       <Nav />
-      <Footer />
       <Hero />
       <About />
+      <Footer />
+
     </>
   )
 }
