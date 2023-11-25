@@ -1,3 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    }
+}
+
+/* Patient KYC section */
+.patient-kyc-input-row {
+    @apply flex flex-col md:flex-row items-start gap-[1.5rem] md:gap-[1.94rem];
+}
+
+.patient-kyc-input-col {
+    @apply w-full md:w-1/2;
+}
+
+.patient-kyc-label {
+    @apply inline-block text-[#33607E] text-[0.875rem] font-["DM_Sans"] font-medium leading-[1.25rem] mb-[0.25rem];
+}
+
+.patient-kyc-input {
+    @apply w-full bg-white border rounded-[0.5rem] px-[0.75rem] py-[0.8rem] md:py-[1rem] text-base leading-[1.5rem] outline-none;
+}
+
+/* Diabetes type */
+.diabetes-type-input-row {
+    @apply flex flex-col md:flex-row items-start gap-[1.5rem] md:gap-[3.38rem];
+}
+
+.diabetes-type-input-col {
+    @apply  bg-white px-[1rem] py-[0.85rem] md:px-[1.2rem] md:py-[1.3rem] lg:px-[3.125rem] lg:py-[1.5rem] flex justify-between items-center md:max-w-[28.0625rem] md:w-1/2 w-full rounded-[0.625rem];
+}
+
+.diabetes-type-label {
+    @apply text-base md:text-[1.05rem] lg:text-[1.25rem] text-[#020D14] leading-normal;
+}
+
+.diabetes-type-radio-input {
+    @apply w-[1.2rem] h-[1.2rem] lg:w-[2rem] lg:h-[2rem] outline-none;
+}
