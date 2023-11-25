@@ -6,10 +6,10 @@ import PatientsKycStepOne from "./components/patients-kyc/PatientsKycStepOne";
 import PatientsKycStepTwo from "./components/patients-kyc/PatientsKycStepTwo";
 import PatientsKycStepThree from "./components/patients-kyc/PatientsKycStepThree";
 import PatientsKycStepFour from "./components/patients-kyc/PatientsKycStepFour";
+import PatientsKycStepFive from "./components/patients-kyc/PatientsKycStepFive";
+import PatientsKycStepSix from "./components/patients-kyc/PatientsKycStepSix";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
-import PatientsKyc from "./pages/PatientsKyc";
-import PatientsKycMed from './pages/PatientsKycMed';
 
 
 const App = () => {
@@ -20,8 +20,9 @@ const App = () => {
       <Route path="/patients-kyc-step-two" element={<PatientsKycStepTwo />} />
       <Route path="/patients-kyc-step-three" element={<PatientsKycStepThree />} />
       <Route path="/patients-kyc-step-four" element={<PatientsKycStepFour />} />
-      <Route path="patients" element={<PatientsKyc />} />
-      <Route path="/patientsmed" element={<PatientsKycMed />} />
+      <Route path="/patients-kyc-step-five" element={<PatientsKycStepFive />} />
+      <Route path="/patients-kyc-step-six" element={<PatientsKycStepSix />} />
+
       <Route path="*" element={<NotFound />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
