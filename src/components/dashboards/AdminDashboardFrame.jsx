@@ -6,6 +6,7 @@ import AnalyticsFeedbacksTab from "./AnalyticsFeedbacksTab";
 import SettingsTab from "./SettingsTab";
 import magnifier from "../../assets/icons/admin-dashboard/magnifier.svg";
 import bell from "../../assets/icons/admin-dashboard/bell.svg";
+import dot from "../../assets/icons/admin-dashboard/dot.svg";
 import face from "../../assets/images/admin-dashboard/Face.svg";
 import logo from "../../assets/images/admin-dashboard/logo.svg";
 import { FaBars } from "react-icons/fa";
@@ -19,7 +20,7 @@ const AdminDashboardFrame = () => {
 
   return (
     <section className="relative w-full overflow-hidden">
-      <div className="lg:px-[1.56rem] px-[1rem]">
+      <div className="lg:py-[1.56rem] lg:pr-[2.12rem] lg:pl-[1.54rem] px-[1rem]">
         {/* header */}
         <header>
           <div className="flex lg:justify-between items-center md:py-[0.88rem] py-[1.5rem] md:mb-[1rem]">
@@ -63,8 +64,9 @@ const AdminDashboardFrame = () => {
                   />
                 </div>
               </div>
-              <div className="flex  w-[2.818rem] h-[3rem] bg-transparent-blue items-center justify-center rounded-[0.5rem]">
+              <div className="relative flex w-[2.818rem] h-[3rem] bg-transparent-blue items-center justify-center rounded-[0.5rem]">
                 <img src={bell} alt="bell" />
+                <img src={dot} alt="notification" className="absolute top-[0.7rem] right-[0.7rem]"/>
               </div>
             </div>
 
