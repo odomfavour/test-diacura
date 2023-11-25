@@ -4,6 +4,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .get-started {
+      @apply xl:py-5 xl:px-4 p-2 text-center border border-[#107BC0] bg-white rounded cursor-pointer hover:bg-[#107BC0] active:bg-[#107BC0] focus:outline-none focus:bg-[#107BC0]
+      hover:text-white active:text-white focus:text-white      
+    }
+
+    .get-startedHeader {
+        @apply mb-4 font-bold text-[28px] leading-[38.13px] text-[#107BC0]
+    }
+}
+
+.box-shadow {
+    box-shadow: 0px 4px 4px 0px #09406352;
+}
+
+.get-started:hover h4,
+.get-started:active h4,
+.get-started:focus h4 {
+    color: white !important; 
+}
+
+.get-started:hover,
+.get-started:active,
+.get-started:focus {
+    box-shadow: 0px 4px 4px 0px #09406352;       
+}
+
 @layer base {
     html {
         font-family: "Open Sans", Arial, Helvetica, sans-serif;
