@@ -6,22 +6,23 @@ const About = () => {
 
             <div className="container mx-auto w-[85%]">
 
-                <h4 className="lg:pt-[40px] lg:w-[512px] lg:h-[98px] lg:flex lg:justify-center text-center mx-auto lg:text-[36px] font-Open-sans font-extrabold text-[#FFFFFF]  ">Why should you trust us ?
+                <h4 className="lg:pt-[40px]  pt-5 text-[20px] w-[267px] h-[54px] lg:w-[512px] lg:h-[98px] lg:flex lg:justify-center text-center mx-auto lg:text-[36px] font-Open-sans font-extrabold text-[#FFFFFF]  ">Why should you trust us ?
                     Get to know about us</h4>
 
-                <div className="lg:flex lg:flex-nowrap lg:justify-center lg:gap-5 flex flex-wrap ">
+                <div className="lg:flex lg:flex-nowrap  lg:justify-center lg:gap-5 gap-3  flex flex-wrap  ">
                     {Data.map((info) => {
+                        3
 
-                        const { id, Image, rating, content } = info
+                        const { id, Image, rating, content, text } = info
                         return (<>
-                            <div className="bg-[#FFFFFF] lg:w-[254px] lg:h-[286px] shadow-lg rounded-2xl lg:mt-[90px] p-5" key={id}>
-                                <div className="bg-[#CFE5F2] lg:w-[60px] lg:h-[60px] rounded-full flex justify-center mx-auto">
-                                    <img className="  pt-3 w-[37px] h-[37px]" src={Image} alt="image" />
+                            <div className="bg-[#FFFFFF] lg:w-[254px] w-[48%]  h-[211px] lg:h-[286px] shadow-lg rounded-2xl mt-8 lg:mt-[90px] p-5" key={id}>
+                                <div className="bg-[#CFE5F2] lg:w-[60px] lg:h-[60px] w-[40px] h-[40px] rounded-full lg:rounded-full flex justify-center mx-auto">
+                                    <img className=" mx-auto lg:pt-4 pt-2 w-[30px] h-[30px] lg:w-[35px] lg:h-[35px]" src={Image} alt="image" />
                                 </div>
 
-                                <p className="flex  mt-2 justify-center mx-auto font-Open-sans text-[32px] text-[#062D45] font-extrabold">{rating}</p>
-                                <p>{content}</p>
-                                <p></p>
+                                <p className="flex  mt-6 justify-center mx-auto font-Open-sans lg:text-[32px] text-[20px] text-[#062D45] font-extrabold">{rating}</p>
+                                <p className=" flex justify-center lg:text-[20px] text-[14px] font-bold font-Open-sans text-[#062D45]">{content}</p>
+                                <p className=" flex justify-center mt-2 lg:text-[16px] font-normal font-Open-sans text-[#062D45]">{text}</p>
 
 
                             </div>
