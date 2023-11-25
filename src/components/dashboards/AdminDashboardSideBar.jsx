@@ -5,6 +5,7 @@ import cross from "../../assets/icons/admin-dashboard/cross.svg";
 import separator from "../../assets/icons/admin-dashboard/separator.svg";
 import { TbLayoutGrid } from "react-icons/tb";
 import { FaRegUserCircle, FaChevronUp } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
 import {
   HiUserGroup,
   HiOutlineChartPie,
@@ -14,24 +15,30 @@ import {
 } from "react-icons/hi";
 
 const AdminDashboardSideBar = () => {
-  const { activeTab, setActiveTab, toggleNav } = AdminMenuContextProvider();
+  const { activeTab, setActiveTab, toggleNav, setToggleNav } =
+    AdminMenuContextProvider();
 
   return (
     <aside className="relative">
+      {/* Side bar */}
       <div
-        className={`w-[18.75rem] h-[64rem] bg-[#094063] pb-[5rem] absolute md:static ${
+        className={`w-[18.75rem] md:h-[64rem] h-[55rem] bg-[#094063] md:pb-[5rem] pb-[2rem] absolute lg:static ${
           toggleNav ? "left-0" : "-left-[50rem]"
         } top-0 z-20 transition-all duration-500`}
       >
         {/* Logo container */}
-        <div className="pt-[5rem] pb-[5rem] pl-[2.44rem] pr-[2.55rem]">
+        <div className="p-[1.5rem] lg:pt-[5rem] lg:pb-[5rem] lg:pl-[2.44rem] lg:pr-[2.55rem] flex items-center justify-between">
           <img src={logo} alt="Dia-cura Med logo" />
+          <AiOutlineClose
+            className="text-2xl cursor-pointer xl:hidden text-[#CFE5F2]"
+            onClick={() => setToggleNav(false)}
+          />
         </div>
 
         {/* Navigation container */}
         <div>
           {/* Navigation tabs */}
-          <ul className="flex flex-col gap-[1rem] pl-[1.69rem] pr-[0.1rem] pb-[2rem] min-h-[31rem]">
+          <ul className="flex flex-col gap-[1rem] pl-[1.69rem] pr-[0.1rem] pb-[1rem] md:pb-[2rem] min-h-[31rem]">
             <li
               onClick={() => setActiveTab("Dashboard")}
               className={`admin-dashboard-tab ${
@@ -129,7 +136,7 @@ const AdminDashboardSideBar = () => {
             <ul>
               <li
                 onClick={() => setActiveTab("Settings")}
-                className={`flex gap-[0.5rem] pt-[1.19rem] pl-[1.19rem] pb-[1.31rem] rounded-l-[0.625rem] text-base w-[14.75rem] h-[4rem] ml-auto mr-[1.12rem] mb-[3.62rem] mt-[0.5rem] ${
+                className={`flex gap-[0.5rem] pt-[1.19rem] pl-[1.19rem] pb-[1.31rem] rounded-l-[0.625rem] text-base w-[14.75rem] md:h-[4rem] h-[3.5rem] ml-auto mr-[1.12rem] mb-[3.62rem] mt-[0.5rem] ${
                   activeTab === "Settings"
                     ? "bg-[#CFE5F2] text-[#094063]"
                     : "text-[#CFE5F2]"
@@ -140,7 +147,7 @@ const AdminDashboardSideBar = () => {
                   <span>Settings</span>
                 </button>
               </li>
-              <li className="w-[12.75rem] flex justify-center ml-auto mr-[3rem] border border-white rounded-[0.625rem] px-[0.5rem] py-[1rem] ">
+              <li className="md:w-[12.75rem] w-[10rem] flex justify-center ml-auto md:mr-[3rem] mr-[4.5rem] border border-white rounded-[0.625rem] px-[0.5rem] py-[1rem] ">
                 <button
                   type="button"
                   className="admin-dashboard-tab-button justify-center text-[1.125rem] text-white"

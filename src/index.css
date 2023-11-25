@@ -46,7 +46,7 @@
 
 /* Admin Dashboard */
 .admin-dashboard-tab {
-    @apply flex items-center gap-[0.5rem] pt-[1.19rem] pl-[1.19rem] pb-[1.31rem] rounded-l-[0.625rem] text-base w-[17rem] h-[4rem];
+    @apply flex items-center gap-[0.5rem] pt-[1.19rem] pl-[1.19rem] pb-[1.31rem] rounded-l-[0.625rem] text-base w-[17rem] md:h-[4rem] h-[3.5rem];
 }
 
 .admin-dashboard-tab-button {
