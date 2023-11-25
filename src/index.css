@@ -6,7 +6,7 @@
 
 @layer components {
     .get-started {
-      @apply py-5 px-4 text-center border border-[#107BC0] bg-white rounded cursor-pointer hover:bg-[#107BC0] active:bg-[#107BC0] focus:outline-none focus:bg-[#107BC0]
+      @apply xl:py-5 xl:px-4 p-2 text-center border border-[#107BC0] bg-white rounded cursor-pointer hover:bg-[#107BC0] active:bg-[#107BC0] focus:outline-none focus:bg-[#107BC0]
       hover:text-white active:text-white focus:text-white      
     }
 
