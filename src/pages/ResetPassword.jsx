@@ -12,8 +12,10 @@ const ResetPassword = () => {
   const togglePass = () => {
     setToggleVisibility(!toggleVisibility)
   }
-
-  function isClickable() {
+  
+  // Restricts the send button from clicking till the conditions pass - Input field must have a value
+  // and password === confirmPassword. 
+  const isClickable = () => {
     if (!password || !confirmPassword) return false
     if (password != confirmPassword) return false
     return true
