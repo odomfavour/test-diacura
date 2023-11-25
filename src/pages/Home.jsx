@@ -10,7 +10,7 @@ const Home = () => {
     <GenericLayouts>
       <OurDashboard />
       <OurDoctors />
-      <FrequentlyAskedQuestions />
+      <FrequentlyAskedQuestions align={"text-center"}/>
       <Testimonials />
     </GenericLayouts>
   );

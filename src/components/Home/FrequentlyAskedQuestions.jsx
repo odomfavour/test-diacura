@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
+import PropTypes from "prop-types"
 
 const faqList = [
   {
@@ -35,7 +36,7 @@ const faqList = [
   },
 ];
 
-const FrequentlyAskedQuestions = () => {
+const FrequentlyAskedQuestions = ({align}) => {
   const [faqs, setFaqs] = useState(faqList);
 
   //Toggle questions and answers
@@ -52,7 +53,7 @@ const FrequentlyAskedQuestions = () => {
   return (
     <section>
       <div className="px-[1.5rem] py-[2.625rem] max-w-[74.8125rem] mx-auto">
-        <div className="text-center">
+        <div className={align}>
           <h2 className="text-[1.5rem] font-bold leading-normal lg:text-[4rem] mb-[3.55rem] lg:mb-[4.88rem]">
             FAQs
           </h2>
@@ -114,5 +115,9 @@ const FrequentlyAskedQuestions = () => {
     </section>
   );
 };
+
+FrequentlyAskedQuestions.propTypes = {
+  align: PropTypes.string
+}
 
 export default FrequentlyAskedQuestions;
