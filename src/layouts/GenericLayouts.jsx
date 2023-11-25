@@ -1,14 +1,16 @@
 import React from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const GenericLayouts = ({children}) => {
   return (
     <>
-      {/* Header */}
+      <Nav />
       <main>
         {children}
       </main>
 
-      {/* <footer></footer> */}
+      <Footer />
     </>
   )
 }
