@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
-
-const PatientsKycMed = () => {
+const PatientsConsent = () => {
     return (
         <section>
             <div className=" mx-auto lg:mt-[90px] lg:w-[1081px] lg:h-[539px] shadow-2xl rounded-[25px]" style={{ backgroundColor: 'rgba(207, 229, 242, 0.30)' }}>
@@ -36,8 +35,7 @@ const PatientsKycMed = () => {
 
             </div>
 
-        </section>
-    )
+        </section>)
 }
 
-export default PatientsKycMed
+export default PatientsConsent
