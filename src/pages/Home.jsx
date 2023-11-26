@@ -1,15 +1,19 @@
 import React from "react";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import GenericLayouts from "../layouts/GenericLayouts";
+import OurDashboard from "../components/Home/OurDashboard";
+import OurDoctors from "../components/Home/OurDoctors";
+import FrequentlyAskedQuestions from "../components/Home/FrequentlyAskedQuestions";
+import Testimonials from "../components/Home/Testimonials";
 
 const Home = () => {
   return (
-    <>
-      {/* <p>Dia-Cura Homepage</p> */}
-      <Nav />
-      <Footer />
-    </>
-  )
-}
+    <GenericLayouts>
+      <OurDashboard />
+      <OurDoctors />
+      <FrequentlyAskedQuestions align={"text-center"}/>
+      <Testimonials />
+    </GenericLayouts>
+  );
+};
 
-export default Home
+export default Home;
