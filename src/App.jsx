@@ -12,6 +12,8 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Faq from "./pages/FAQ";
 import ContactUs from "./components/ContactUs";
+import PatientsKyc from "./pages/PatientsKyc";
+import PatientsKycMed from './pages/PatientsKycMed';
 
 
 const App = () => {
@@ -29,6 +31,11 @@ const App = () => {
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="*" element={<NotFound />} />
       <Route path="/contact-us" element={<ContactUs />} />
+      <Route path="patients" element={<PatientsKyc />} />
+      <Route path="*" element={<NotFound />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/patientsmed" element={<PatientsKycMed />} />
 
     </Routes>
 
