@@ -1,5 +1,4 @@
 import PatientKYC from "../../layouts/PatientKYC";
-import PatientsKycButtons from "./PatientsKycButtons";
 
 const PatientsKycStepSix = () => {
     return (
@@ -9,7 +8,7 @@ const PatientsKycStepSix = () => {
                     {/* Form container */}
                     <div className=" ">
                         <p className="lg:text-[24px] font-semibold font-Open-sans text-[#107BC0]">Consent and Agreement</p>
-                        <p className="font-Open-sans font-normal lg:text-[20px] lg:mt-[40px]"> I, <span className="text-[#107BC0]">[<input className="text-[#107BC0]" type="text" placeholder="Your Full name" />]</span>, hereby consent to Diacura-Med’s terms and conditions. I understand that the information provided is confidential and will be used for the purpose of managing my diabetes related services.   </p>
+                        <p className="font-Open-sans font-normal lg:text-[20px] lg:mt-[20px]"> I, <span className="text-[#107BC0]">[<input className="text-[#107BC0]" type="text" placeholder="Your Full name" />]</span>, hereby consent to Diacura-Med’s terms and conditions. I understand that the information provided is confidential and will be used for the purpose of managing my diabetes related services.   </p>
 
                         <div className="lg:flex gap-2 mt-4 font-Open-sans">
                             <input
