@@ -12,9 +12,9 @@ const Hero = () => {
 
                     <div>
                         <h3 className="lg:text-[20px] lg:mt-0 mt-3 font-Open-sans font-extrabold text-[14px] ">Welcome onboard</h3>
-                        <h3 className="lg:w-[512px] lg:h-[108px] lg:leading-[50px]  leading-10 lg:text-[40px] text-[32px] lg:mt-4 mt-4 font-extrabold text-[#062D45]  font-Open-sans">Get Expert Medical Help With Diabetes From Us</h3>
+                        <h3 className="lg:w-[512px] lg:h-[108px] lg:leading-[50px]  leading-10 lg:text-[40px] text-[32px] lg:mt-4 mt-4 font-extrabold text-[#062D45]  font-Open-sans ">Get Expert Medical Help With Diabetes From Us</h3>
 
-                        <p className="lg:w-[516px] lg:h-[108px] lg:mt-7 mt-4 lg:mb-0 mb-3 text-[16px] lg:text-[20px] font-normal font-Open-sans text-[#868686]">Welcome to DiaCura-Med, redefining diabetes management.
+                        <p className="lg:w-[516px] lg:h-[108px] lg:mt-[50px] mt-4 lg:mb-0 mb-3 text-[16px] lg:text-[20px] font-normal font-Open-sans text-[#868686]  ">Welcome to DiaCura-Med, redefining diabetes management.
                             Discover personalized solutions, expert guidance,
                             and a supportive community.
                             Take control with intuitive tools.

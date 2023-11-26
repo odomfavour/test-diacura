@@ -6,12 +6,15 @@ import OurDashboard from "../components/Home/OurDashboard";
 import OurDoctors from "../components/Home/OurDoctors";
 import FrequentlyAskedQuestions from "../components/Home/FrequentlyAskedQuestions";
 import Testimonials from "../components/Home/Testimonials";
+import Services from "../components/Home-page-Layout/Services";
+
 
 const Home = () => {
   return (
     <GenericLayouts>
       <Hero />
       <About />
+      <Services />
       <OurDashboard />
       <OurDoctors />
       <FrequentlyAskedQuestions align={"text-center"} />
@@ -19,6 +22,8 @@ const Home = () => {
     </GenericLayouts>
   );
 };
+
+
 
 
 export default Home;
