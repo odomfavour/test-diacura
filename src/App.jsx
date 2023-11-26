@@ -11,6 +11,7 @@ import { AdminDashboard } from "./components/dashboards/AdminDashboard";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Faq from "./pages/FAQ";
+import ContactUs from "./components/ContactUs";
 
 const App = () => {
   return(
@@ -26,6 +27,7 @@ const App = () => {
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="*" element={<NotFound />} />
+      <Route path="/contact-us" element={<ContactUs />} />
     </Routes>    
   )
 }
