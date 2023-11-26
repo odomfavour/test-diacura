@@ -9,6 +9,7 @@ import PatientsKycStepThree from "./components/patients-kyc/PatientsKycStepThree
 import PatientsKycStepFour from "./components/patients-kyc/PatientsKycStepFour";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import ContactUs from "./components/ContactUs";
 
 const App = () => {
   return(
@@ -22,6 +23,7 @@ const App = () => {
       <Route path="/get-started" element={<GetStarted />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/contact-us" element={<ContactUs />} />
     </Routes>    
   )
 }

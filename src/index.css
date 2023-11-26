@@ -13,6 +13,19 @@
     .get-startedHeader {
         @apply mb-4 font-bold text-[28px] leading-[38.13px] text-[#107BC0]
     }
+
+    .contact {
+        @apply font-semibold md:text-xl text-[#3891CA]
+    }
+
+    .contact-details {
+        @apply rounded-lg border border-[#94A3B8] text-[#7090A5] bg-white py-3 px-2 
+        font-normal text-base
+    }
+}
+
+.contact-shadow {
+    box-shadow: 0px 2px 10px 0px #0000001A, 0px 0px 2px 0px #00000033;
 }
 
 .box-shadow {
