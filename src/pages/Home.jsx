@@ -1,4 +1,4 @@
-import React from "react";
+
 import GenericLayouts from "../layouts/GenericLayouts";
 import OurDashboard from "../components/Home/OurDashboard";
 import OurDoctors from "../components/Home/OurDoctors";
@@ -10,7 +10,7 @@ const Home = () => {
     <GenericLayouts>
       <OurDashboard />
       <OurDoctors />
-      <FrequentlyAskedQuestions align={"text-center"}/>
+      <FrequentlyAskedQuestions align={"text-center"} />
       <Testimonials />
     </GenericLayouts>
   );
