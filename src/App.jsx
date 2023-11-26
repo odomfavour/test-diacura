@@ -14,6 +14,9 @@ import Faq from "./pages/FAQ";
 import ContactUs from "./components/ContactUs";
 import PatientsKyc from "./pages/PatientsKyc";
 import PatientsKycMed from './pages/PatientsKycMed';
+import PatientsKycStepFive from "./components/patients-kyc/PatientsKycStepFive";
+import PatientsKycStepSix from "./components/patients-kyc/PatientsKycStepSix";
+
 
 
 const App = () => {
@@ -33,7 +36,8 @@ const App = () => {
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="patients" element={<PatientsKyc />} />
       <Route path="/patientsmed" element={<PatientsKycMed />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="/patients-kyc-step-five" element={<PatientsKycStepFive />} />
+      <Route path="/patients-kyc-step-six" element={<PatientsKycStepSix />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/patientsmed" element={<PatientsKycMed />} />
