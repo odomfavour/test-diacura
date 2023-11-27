@@ -35,7 +35,7 @@ const Nav = () => {
               <Link className="py-3" to="" onClick={disableHamburger}>Home</Link>
             </li>
             <li className="text-sm text-[#666666] font-semibold transition ease-in-out delay-70 my-6">
-              <Link className="py-3" to="" onClick={disableHamburger}>FAQ</Link>
+              <Link className="py-3" to={"/faq"} onClick={disableHamburger}>FAQ</Link>
             </li>
             <li className="text-sm text-[#666666] font-semibold transition ease-in-out delay-70 my-6">
               <Link className="py-3" to="" onClick={disableHamburger}>Contact Us</Link>
