@@ -6,8 +6,6 @@ import About from "../components/Home-page-Layout/About"
 import Hero from "../components/Home-page-Layout/Hero"
 
 import GenericLayouts from "../layouts/GenericLayouts";
-import About from "../components/Home/About"
-import Hero from "../components/Home/Hero"
 import OurDashboard from "../components/Home/OurDashboard";
 import OurDoctors from "../components/Home/OurDoctors";
 import FrequentlyAskedQuestions from "../components/Home/FrequentlyAskedQuestions";

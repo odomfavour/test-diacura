@@ -14,8 +14,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Faq from "./pages/FAQ";
 import ContactUs from "./components/ContactUs";
-import PatientsKycStepFive from "./components/patients-kyc/PatientsKycStepFive";
-import PatientsKycStepSix from "./components/patients-kyc/PatientsKycStepSix";
+
 
 
 
