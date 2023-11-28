@@ -1,4 +1,3 @@
-
 import { Routes, Route } from 'react-router-dom'
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -14,8 +13,8 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Faq from "./pages/FAQ";
 import ContactUs from "./components/ContactUs";
-
-
+import PatientsKycStepFive from "./components/patients-kyc/PatientsKycStepFive";
+import PatientsKycStepSix from "./components/patients-kyc/PatientsKycStepSix";
 
 
 
@@ -44,11 +43,10 @@ const App = () => {
       <Route path="/patients-kyc-step-six" element={<PatientsKycStepSix />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
-
+      <Route path="/login" element={<LogIn />} />
+      <Route path="/signup" element={<SignUp />} />
     </Routes>
-
-
   )
 }
 
-export default App
+export default App;
