@@ -12,6 +12,7 @@ export default {
       textColor: {
         "primary-color-light-blue-300": "#107BC0",
         "black-60": "rgba(33, 37, 41, 0.60)",
+        "black-80": "rgba(0, 0, 0, 0.80)",
       },
       borderColor: {
         "primary-color-light-blue-300": "#107BC0",
@@ -21,6 +22,7 @@ export default {
         bigBox:
           "0px 2px 10px 0px rgba(0, 0, 0, 0.10), 0px 0px 2px 0px rgba(0, 0, 0, 0.20)",
           "testimonialBox": "0px 4px 43.3px 0px rgba(69, 81, 84, 0.11)",
+          "profileInfoBox": "0px 4px 43.3px 0px rgba(69, 81, 84, 0.11)",
       },
     },
     fontFamily: {
