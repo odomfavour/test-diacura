@@ -1,6 +1,15 @@
 import PatientKYC from "../../layouts/PatientKYC";
+import { useState } from "react";
+import Modal from "./Modal";
 
 const PatientsKycStepSix = () => {
+    const [showModal, setShowModal] = useState(false)
+
+    const togglebtn = () => {
+        setShowModal(!showModal)
+    }
+
+
     return (
         <section>
             <PatientKYC current={6} heading={""}>
@@ -32,7 +41,7 @@ const PatientsKycStepSix = () => {
 
                         </div>
                         <div className="lg:flex lg:justify-end">
-                            <button className="   bg-[#107BC0] lg:w-[273px] lg:h-[56px] lg:mt-[60px]  lg:text-[20px] text-[#ffff] rounded font-Open-sans font-bold">Finish</button>
+                            <button onClick={togglebtn} className="bg-[#107BC0] lg:w-[273px] lg:h-[56px] lg:mt-[60px]  lg:text-[20px] text-[#ffff] rounded font-Open-sans font-bold">Finish</button>
                         </div>
 
                     </form>
@@ -42,7 +51,9 @@ const PatientsKycStepSix = () => {
                 </div>
                 {/* buttons container */}
 
+
             </PatientKYC>
+            {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
 
 
 
