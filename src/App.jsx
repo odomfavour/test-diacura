@@ -15,6 +15,8 @@ import PatientsKycStepFive from "./components/patients-kyc/PatientsKycStepFive";
 import PatientsKycStepSix from "./components/patients-kyc/PatientsKycStepSix";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
+import PatientsDashboard from './components/dashboards/patients/PatientsDashboard';
+import DoctorsDashboard from './components/dashboards/doctors/DoctorsDashboard';
 
 const App = () => {
   return (
@@ -25,6 +27,8 @@ const App = () => {
       <Route path="/patients-kyc-step-three" element={<PatientsKycStepThree />} />
       <Route path="/patients-kyc-step-four" element={<PatientsKycStepFour />} />
       <Route path="/admin-dashboard" element={<AdminDashboard />} />
+      <Route path="/patient-dashboard" element={<PatientsDashboard />} />
+      <Route path="/doctor-dashboard" element={<DoctorsDashboard /> } />
       <Route path="/faq" element={<Faq />} />
       <Route path="/get-started" element={<GetStarted />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
