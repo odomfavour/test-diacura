@@ -93,6 +93,10 @@
     @apply flex justify-between items-start;
 }
 
+.personal-information  {
+    @apply min-w-[70px];
+}
+
 .personal-information h3 {
     @apply text-[#999] text-[1.125rem] font-semibold leading-normal lg:mb-[1.25rem] mb-[0.7rem];
 }
