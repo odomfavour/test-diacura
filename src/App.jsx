@@ -15,8 +15,8 @@ import Faq from "./pages/FAQ";
 import ContactUs from "./components/ContactUs";
 import PatientsKycStepFive from "./components/patients-kyc/PatientsKycStepFive";
 import PatientsKycStepSix from "./components/patients-kyc/PatientsKycStepSix";
-
-
+import LogIn from "./pages/LogIn";
+import SignUp from "./pages/SignUp";
 import PatientsDashboard from './components/dashboards/patients/PatientsDashboard';
 import DoctorsDashboard from './components/dashboards/doctors/DoctorsDashboard';
 
