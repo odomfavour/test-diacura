@@ -2,8 +2,17 @@ import Shuffle from "../../../assets/shuffle.svg"
 import FullStar from "../../../assets/full-star.svg"
 import HalfStar from "../../../assets/half-star.svg"
 import Doctor from "../../../assets/doctors-image.png"
+import DAppointment from "../../../assets/doctor-appointment.png"
+import { useState } from "react"
 
 const AppointmentsTab = () => {
+  const [activeButton, setActiveButton] = useState(1)
+  const handleActiveSelect = (buttonNumber) => {
+    setActiveButton(buttonNumber)
+    console.log(activeButton)
+  }
+
+  // Dummy data for recommendations tab
   const DietryRecommend = [
     {
       name: "Dr. Phillip Chukwuemeka",
@@ -66,7 +75,8 @@ const AppointmentsTab = () => {
           <div className="w-full py-3 bg-[#cfe5f2] rounded-t-[1.25rem] border-b border-[#919191] text-center">
             <p  className="font-semibold">Dietry Recommendations</p>
           </div>
-          <div className="overflow-y-scroll max-h-[20rem]">
+          {/* Prior to removing */}
+          <div className="overflow-y-scroll max-h-[20rem] scroll-set">
             {DietryRecommend.map((item) => (
               <div className="bg-[#fafbfc] mx-2 my-2 pb-2 shadow-md rounded-[.5rem] px-3">
               <p className="pt-3 pb-1 font-semibold underline text-[1rem]">{item.name}</p>
@@ -77,10 +87,46 @@ const AppointmentsTab = () => {
           </div>
         </div>
         <div className="col-span-3 row-span-1 order-1 bg-green-600 py-12 rounded-[1.25rem]">
-
+          
         </div>
-        <div className="col-span-3 bg-blue-600 py-12 order-3 rounded-[1.25rem]">
-
+        <div className="col-span-3 order-3 rounded-[1.25rem] bg-white">
+          <div className="bg-[#cfe5f2] rounded-t-[1.25rem] flex">
+            <button className={`w-2/4 font-bold py-3 text-[#232323] ${activeButton === 1 ? 'border-b-2 border-[#107bc0]' : ''}`} onClick={() => handleActiveSelect(1)}>
+              Appointment History
+            </button>
+            <button className={`w-2/4 flex py-3 items-center justify-center gap-2 font-bold text-[#232323] ${activeButton === 2 ? 'border-b-2 border-[#107bc0]' : ''}`} onClick={() => handleActiveSelect(2)}>
+              Upcoming Appointment
+              <p className="bg-[#107bc0] rounded-full h-[1.3rem] w-[1.3rem] text-xs flex items-center justify-center text-white">03</p>
+            </button>
+          </div>
+          <div>
+          <table className="table-auto w-full">
+            <thead>
+              <tr>
+                <th className="py-2"></th>
+                <th className="py-2">Name</th>
+                <th className=" py-2">Specialization</th>
+                <th className=" py-2">Date</th>
+                <th className=" py-2">Time</th>
+                <th className=" py-2">Report</th>
+                <th className=" py-2"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border py-2 flex items-center justify-center">
+                  <img className="w-3/4 rounded-full" src={DAppointment} alt="" />
+                </td>
+                <td className="border text-center py-2">Daniel Udechukwu</td>
+                <td className="border text-center py-2">Endocrinologist</td>
+                <td className="border text-center py-2">30/10/23</td>
+                <td className="border text-center py-2">08:30-09:00PM</td>
+                <td className="border text-center py-2"></td>
+                {/* Add more cells as needed */}
+              </tr>
+            </tbody>
+          </table>
+          </div>
         </div>
       </div>
     </>
