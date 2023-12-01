@@ -131,3 +131,7 @@
 .patient-dashboard-tab-button {
     @apply flex items-center gap-[0.5rem] outline-none font-semibold leading-normal;
 }
+
+.scroll-set {
+    scrollbar-width: none !important;
+}
