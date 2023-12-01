@@ -17,7 +17,7 @@ const DashboardSidebar = () => {
     <aside className="relative">
       {/* Side bar */}
       <div
-        className={`w-[18rem] md:h-[64rem] h-[55rem] bg-[#062D45] md:pb-[5.25rem] pb-[2rem] absolute lg:static ${
+        className={`w-[18rem] md:min-h-[64rem] bg-[#062D45] md:pb-[5.25rem] pb-[2rem] absolute lg:static ${
           toggleNav ? "left-0" : "-left-[50rem]"
         } top-0 z-20 transition-all duration-500`}
       >
