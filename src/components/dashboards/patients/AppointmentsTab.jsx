@@ -3,6 +3,8 @@ import FullStar from "../../../assets/full-star.svg"
 import HalfStar from "../../../assets/half-star.svg"
 import Doctor from "../../../assets/doctors-image.png"
 import DAppointment from "../../../assets/doctor-appointment.png"
+import File from "../../../assets/file.svg"
+import Dots from "../../../assets/dots.svg"
 import { useState } from "react"
 
 const AppointmentsTab = () => {
@@ -100,32 +102,104 @@ const AppointmentsTab = () => {
             </button>
           </div>
           <div>
-          <table className="table-auto w-full">
-            <thead>
-              <tr>
-                <th className="py-2"></th>
-                <th className="py-2">Name</th>
-                <th className=" py-2">Specialization</th>
-                <th className=" py-2">Date</th>
-                <th className=" py-2">Time</th>
-                <th className=" py-2">Report</th>
-                <th className=" py-2"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border py-2 flex items-center justify-center">
-                  <img className="w-3/4 rounded-full" src={DAppointment} alt="" />
-                </td>
-                <td className="border text-center py-2">Daniel Udechukwu</td>
-                <td className="border text-center py-2">Endocrinologist</td>
-                <td className="border text-center py-2">30/10/23</td>
-                <td className="border text-center py-2">08:30-09:00PM</td>
-                <td className="border text-center py-2"></td>
-                {/* Add more cells as needed */}
-              </tr>
-            </tbody>
-          </table>
+            {/* Needs to be fixed. Change from table to flexbox */}
+            <div className="max-h-[10rem] overflow-y-scroll">
+              <table className="table-auto w-full">
+                <thead className="bg-[#eef8ff]">
+                  <tr>
+                    <th className="py-4 font-semibold"></th>
+                    <th className="py-4 font-semibold">Name</th>
+                    <th className="py-4 font-semibold">Specialization</th>
+                    <th className="py-4 font-semibold">Date</th>
+                    <th className="py-4 font-semibold">Time</th>
+                    <th className="py-4 font-semibold">Report</th>
+                    <th className="py-4 font-semibold"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className=" py-2 flex items-center justify-center">
+                      <img className="w-3/4 rounded-full" src={DAppointment} alt="" />
+                    </td>
+                    <td className=" text-center py-2">Daniel Udechukwu</td>
+                    <td className=" text-center py-2">Endocrinologist</td>
+                    <td className=" text-center py-2">30/10/23</td>
+                    <td className=" text-center py-2">08:30-09:00PM</td>
+                    <td className=" flex items-center justify-center py-2">
+                      <img src={File} alt="" />
+                    </td>
+                    <td className="">
+                      <img src={Dots} alt="" />
+                    </td>
+                    {/* Add more cells as needed */}
+                  </tr>
+                  <tr>
+                    <td className=" py-2 flex items-center justify-center">
+                      <img className="w-3/4 rounded-full" src={DAppointment} alt="" />
+                    </td>
+                    <td className=" text-center py-2">Daniel Udechukwu</td>
+                    <td className=" text-center py-2">Endocrinologist</td>
+                    <td className=" text-center py-2">30/10/23</td>
+                    <td className=" text-center py-2">08:30-09:00PM</td>
+                    <td className=" flex items-center justify-center py-2">
+                      <img src={File} alt="" />
+                    </td>
+                    <td className="">
+                      <img src={Dots} alt="" />
+                    </td>
+                    {/* Add more cells as needed */}
+                  </tr>
+                  <tr>
+                    <td className=" py-2 flex items-center justify-center">
+                      <img className="w-3/4 rounded-full" src={DAppointment} alt="" />
+                    </td>
+                    <td className=" text-center py-2">Daniel Udechukwu</td>
+                    <td className=" text-center py-2">Endocrinologist</td>
+                    <td className=" text-center py-2">30/10/23</td>
+                    <td className=" text-center py-2">08:30-09:00PM</td>
+                    <td className=" flex items-center justify-center py-2">
+                      <img src={File} alt="" />
+                    </td>
+                    <td className="">
+                      <img src={Dots} alt="" />
+                    </td>
+                    {/* Add more cells as needed */}
+                  </tr>
+                  <tr>
+                    <td className=" py-2 flex items-center justify-center">
+                      <img className="w-3/4 rounded-full" src={DAppointment} alt="" />
+                    </td>
+                    <td className=" text-center py-2">Daniel Udechukwu</td>
+                    <td className=" text-center py-2">Endocrinologist</td>
+                    <td className=" text-center py-2">30/10/23</td>
+                    <td className=" text-center py-2">08:30-09:00PM</td>
+                    <td className=" flex items-center justify-center py-2">
+                      <img src={File} alt="" />
+                    </td>
+                    <td className="">
+                      <img src={Dots} alt="" />
+                    </td>
+                    {/* Add more cells as needed */}
+                  </tr>
+                  <tr>
+                    <td className=" py-2 flex items-center justify-center">
+                      <img className="w-3/4 rounded-full" src={DAppointment} alt="" />
+                    </td>
+                    <td className=" text-center py-2">Daniel Udechukwu</td>
+                    <td className=" text-center py-2">Endocrinologist</td>
+                    <td className=" text-center py-2">30/10/23</td>
+                    <td className=" text-center py-2">08:30-09:00PM</td>
+                    <td className=" flex items-center justify-center py-2">
+                      <img src={File} alt="" />
+                    </td>
+                    <td className="">
+                      <img src={Dots} alt="" />
+                    </td>
+                    {/* Add more cells as needed */}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
