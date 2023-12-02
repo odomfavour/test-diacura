@@ -39,7 +39,10 @@ const AdminDashboardFrame = () => {
             </h1>
             {/* Search box */}
             <div className="flex items-center gap-[1rem] md:gap-[2rem] xl:gap-[4rem] ml-auto mr-[1.2rem] xl:m-0">
-              <div onClick={() => setOpenSearch(!openSearch)} className="xl:hidden">
+              <div
+                onClick={() => setOpenSearch(!openSearch)}
+                className="xl:hidden"
+              >
                 <img src={magnifier} alt="search" className="w-[1.5rem]" />
               </div>
               <div
@@ -66,7 +69,11 @@ const AdminDashboardFrame = () => {
               </div>
               <div className="relative flex w-[2.818rem] h-[3rem] bg-transparent-blue items-center justify-center rounded-[0.5rem]">
                 <img src={bell} alt="bell" />
-                <img src={dot} alt="notification" className="absolute top-[0.7rem] right-[0.7rem]"/>
+                <img
+                  src={dot}
+                  alt="notification"
+                  className="absolute top-[0.7rem] right-[0.7rem]"
+                />
               </div>
             </div>
 
@@ -116,7 +123,7 @@ const AdminDashboardFrame = () => {
           {activeTab === "User Managements" && <UserManageMentsTab />}
           {activeTab === "Doctor's KYC" && <DoctorsKycTab />}
           {activeTab === "Analytics / Feedbacks" && <AnalyticsFeedbacksTab />}
-          {activeTab === "Settings" && <SettingsTab />} 
+          {activeTab === "Settings" && <SettingsTab />}
         </div>
       </div>
     </section>
