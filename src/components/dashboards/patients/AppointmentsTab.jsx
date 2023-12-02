@@ -12,13 +12,20 @@ import { useState } from "react"
 const AppointmentsTab = () => {
   const [activeButton, setActiveButton] = useState(1)
   const [dateSelect, setDateSelect] = useState(null)
+  const [timeSelect, setTimeSelect] = useState(null)
   const handleActiveSelect = (buttonNumber) => {
     setActiveButton(buttonNumber)
     console.log(activeButton)
   }
 
+  // Function selects card onClick and sets the index to dateSelect state
   const selectDate = (index) => {
     setDateSelect(index)
+  }
+
+   // Function selects time card onClick and sets the index to dateSelect state
+  const selectTime = (index) => {
+    setTimeSelect(index)
   }
 
   // Dummy data for recommendations tab
@@ -83,9 +90,36 @@ const AppointmentsTab = () => {
     },
   ]
 
+  const timeData = [
+    {
+      time: '8:00am - 9:00am'
+    },
+    {
+      time: '9:00am - 10:00am'
+    },
+    {
+      time: '10:00am - 11:00am'
+    },
+    {
+      time: '11:00am - 12:00pm'
+    },
+    {
+      time: '1:00pm - 2:00pm'
+    },
+    {
+      time: '2:00pm - 3:00pm'
+    },
+    {
+      time: '3:00pm - 4:00pm'
+    },
+    {
+      time: '4:00pm - 5:00pm'
+    },
+  ]
+
   return (
     <>
-      <section className="hidden">
+      <section className="">
         <div className="bg-white rounded-[1.25rem] px-7 py-4 mb-5">
           <div className="flex items-center">
             <p className="mr-auto text-[#333333] font-semibold">Available Doctors</p>
@@ -247,13 +281,13 @@ const AppointmentsTab = () => {
         </div>
       </section>
 
-      <section className="bg-white rounded-[1.25rem] px-4">
+      <section className="bg-white rounded-[1.25rem] px-4 pb-5 hidden">
         <div className="flex items-center gap-4 py-4">
           <img className="h-5" src={Arrow} alt="" />
           <p className="font-bold text-xl">Book Appointments</p>
         </div>
-        <div className="flex items-center gap-12">
-          <div className="flex flex-col justify-center items-center border rounded-md py-4 px-6">
+        <div className="flex gap-12">
+          <div className="flex flex-col justify-center items-center border rounded-md py-4 px-6 w-[18rem]">
             <img className="h-[8rem] mb-4" src={Doc} alt="" />
             <p className="text-[#666666] font-bold text-lg mb-1">Dr. Michael Jones</p>
             <p className="font-semibold text-[#666666] text-sm mb-2">Endocrinologist / Generalist.</p>
@@ -286,22 +320,28 @@ const AppointmentsTab = () => {
 
             <div>
               <p className="font-semibold text-lg text-[#666666] mb-6">Select time</p>
-              <div>
-                <TimeCard />
+              <div className="grid grid-rows-2 grid-cols-4 gap-x-10 gap-y-4">
+                {timeData.map((item, index) => (
+                  <div className={`rounded-md py-4 cursor-pointer ${timeSelect === index ? 'bg-[#107bc0]' : 'bg-[#d0eafb]'}`} key={index} onClick={() => selectTime(index)}>
+                    <p className={`text-xs font-bold text-center ${timeSelect === index ? 'text-white' : 'text-[#7090a5]'}`}>{item.time}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       
-        <div>
-          <p>Note</p>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
+        <div className="mt-8">
+          <p className="text-[#666666] font-semibold">Note</p>
+          <textarea className="border border-[#bcc6d2] outline-none p-2 mt-4 w-full rounded-md text-[#666666]" name="" id="" cols="30" rows="10" placeholder="Write a note to your doctor">
+            
+          </textarea>
 
-          <div>
-            <button>
+          <div className="mt-6 flex items-center gap-5 justify-end">
+            <button className="bg-white text-[#107bc0] text-sm font-bold py-3 px-10 rounded-md mt-2 outline-none border border-[#107bc0] transition ease-out delay-10 hover:bg-[#107bc0] hover:text-white">
               Back
             </button>
-            <button>
+            <button className="bg-[#107bc0] text-white text-sm font-bold py-3 px-6 rounded-md mt-2 outline-none border border-[#107bc0] transition ease-out delay-10 hover:bg-white hover:text-[#107bc0]">
               Book Appointment
             </button>
           </div>
@@ -336,16 +376,6 @@ const DoctorCard = (props) => {
         </button>
       </div>
     </div>
-  )
-}
-
-const TimeCard = (props) => {
-  return (
-    <>
-      <div>
-        <p>8:00am - 9:00am</p>
-      </div>
-    </>
   )
 }
 
