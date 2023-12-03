@@ -11,8 +11,10 @@ import { useState } from "react"
 
 const AppointmentsTab = () => {
   const [activeButton, setActiveButton] = useState(1)
+  const [selectedAppointment, setSelectedAppointment] = useState(0)
   const [dateSelect, setDateSelect] = useState(null)
   const [timeSelect, setTimeSelect] = useState(null)
+  const [bookDoctor, setBookDoctor] = useState(null)
   const handleActiveSelect = (buttonNumber) => {
     setActiveButton(buttonNumber)
     console.log(activeButton)
@@ -27,6 +29,34 @@ const AppointmentsTab = () => {
   const selectTime = (index) => {
     setTimeSelect(index)
   }
+
+  const bookAppointment = (index) => {
+    setBookDoctor(index)
+  }
+
+  const cancelBooking = () => {
+    setBookDoctor(null)
+  }
+
+  // Data for available doctors
+
+  const Doctors = [
+    {
+      image: Doctor,
+      name:"Dr. Michael Jons",
+      specialization: "Endocrinologist / Generalist."
+    },
+    {
+      image: Doctor,
+      name:"Dr. Michael Jons",
+      specialization: "Endocrinologist / Generalist."
+    },
+    {
+      image: Doctor,
+      name:"Dr. Michael Jons",
+      specialization: "Endocrinologist / Generalist."
+    },
+  ]
 
   // Dummy data for recommendations tab
   const DietryRecommend = [
@@ -90,6 +120,7 @@ const AppointmentsTab = () => {
     },
   ]
 
+  // Time object
   const timeData = [
     {
       time: '8:00am - 9:00am'
@@ -119,7 +150,7 @@ const AppointmentsTab = () => {
 
   return (
     <>
-      <section className="">
+      <section className={`${bookDoctor !== null ? 'hidden' : ''}`}>
         <div className="bg-white rounded-[1.25rem] px-7 py-4 mb-5">
           <div className="flex items-center">
             <p className="mr-auto text-[#333333] font-semibold">Available Doctors</p>
@@ -130,21 +161,31 @@ const AppointmentsTab = () => {
           </div>
 
           <div className="flex gap-6 my-4 pb-6 overflow-x-scroll scroll-set">
-            <DoctorCard
-              image = {Doctor}
-              name = "Dr. Michael Jons"
-              specialization = "Endocrinologist / Generalist."
-            />
-            <DoctorCard
-              image = {Doctor}
-              name = "Dr. Michael Jons"
-              specialization = "Endocrinologist / Generalist."
-            />
-            <DoctorCard
-              image = {Doctor}
-              name = "Dr. Michael Jons"
-              specialization = "Endocrinologist / Generalist."
-            />
+            {Doctors.map((card, index) => (
+              <div className="flex items-center gap-6 p-3 shadow-sm rounded-[1.25rem] border w-[25rem]" key={index}>
+                <div className="h-full w-[12rem]">
+                  <img className="rounded-xl w-full" src={card.image} alt="" />
+                </div>
+                <div className="w-[16rem]">
+                  <p className="font-bold text-[1rem]">{card.name}</p>
+                  <p className="font-semibold text-xs text-[#666]">{card.specialization}</p>
+                  <div className="flex gap-4 my-2">
+                    <div className="flex items-center">
+                      <img className="h-3" src={FullStar} alt="" />
+                      <img className="h-3" src={FullStar} alt="" />
+                      <img className="h-3" src={FullStar} alt="" />
+                      <img className="h-3" src={FullStar} alt="" />
+                      <img className="h-3" src={HalfStar} alt="" />
+                    </div>
+                    <p className="text-[#999] font-bold text-xs">4.8</p>
+                    <p className="text-[#999] font-semibold text-xs">(1,200)</p>
+                  </div>
+                  <button className="bg-[#107bc0] text-white text-sm font-bold py-3 px-6 rounded-md mt-2 outline-none border-none" onClick={() => bookAppointment(index)}>
+                    Book Appointment
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>  
         </div>
 
@@ -168,11 +209,11 @@ const AppointmentsTab = () => {
             
           </div>
           <div className="col-span-3 order-3 rounded-[1.25rem] bg-white">
-            <div className="bg-[#cfe5f2] rounded-t-[1.25rem] flex">
-              <button className={`w-2/4 font-bold py-3 text-[#232323] ${activeButton === 1 ? 'border-b-2 border-[#107bc0]' : ''}`} onClick={() => handleActiveSelect(1)}>
+            <div className="rounded-t-[1.25rem] flex">
+              <button className={`w-2/4 font-bold py-3 text-[#232323] rounded-tl-[1.25rem] ${activeButton === 1 ? 'border-b-2 border-[#107bc0] bg-[#cfe5f2]' : ''}`} onClick={() => handleActiveSelect(1)}>
                 Appointment History
               </button>
-              <button className={`w-2/4 flex py-3 items-center justify-center gap-2 font-bold text-[#232323] ${activeButton === 2 ? 'border-b-2 border-[#107bc0]' : ''}`} onClick={() => handleActiveSelect(2)}>
+              <button className={`w-2/4 flex py-3 items-center justify-center gap-2 font-bold text-[#232323] rounded-tr-[1.25rem] ${activeButton === 2 ? 'border-b-2 border-[#107bc0] bg-[#cfe5f2]' : ''}`} onClick={() => handleActiveSelect(2)}>
                 Upcoming Appointment
                 <p className="bg-[#107bc0] rounded-full h-[1.3rem] w-[1.3rem] text-xs flex items-center justify-center text-white">03</p>
               </button>
@@ -281,9 +322,9 @@ const AppointmentsTab = () => {
         </div>
       </section>
 
-      <section className="bg-white rounded-[1.25rem] px-4 pb-5 hidden">
+      <section className={`bg-white rounded-[1.25rem] px-4 pb-5 ${bookDoctor === null ? 'hidden' : ''}`}>
         <div className="flex items-center gap-4 py-4">
-          <img className="h-5" src={Arrow} alt="" />
+          <img className="h-5 cursor-pointer" src={Arrow} alt="" onClick={cancelBooking} />
           <p className="font-bold text-xl">Book Appointments</p>
         </div>
         <div className="flex gap-12">
@@ -351,32 +392,10 @@ const AppointmentsTab = () => {
   )
 }
 
-const DoctorCard = (props) => {
-  return (
-    <div className="flex items-center gap-6 p-3 shadow-sm rounded-[1.25rem] border w-[25rem]">
-      <div className="h-full w-[12rem]">
-        <img className="rounded-xl w-full" src={props.image} alt="" />
-      </div>
-      <div className="w-[16rem]">
-        <p className="font-bold text-[1rem]">{props.name}</p>
-        <p className="font-semibold text-xs text-[#666]">{props.specialization}</p>
-        <div className="flex gap-4 my-2">
-          <div className="flex items-center">
-            <img className="h-3" src={FullStar} alt="" />
-            <img className="h-3" src={FullStar} alt="" />
-            <img className="h-3" src={FullStar} alt="" />
-            <img className="h-3" src={FullStar} alt="" />
-            <img className="h-3" src={HalfStar} alt="" />
-          </div>
-          <p className="text-[#999] font-bold text-xs">4.8</p>
-          <p className="text-[#999] font-semibold text-xs">(1,200)</p>
-        </div>
-        <button className="bg-[#107bc0] text-white text-sm font-bold py-3 px-6 rounded-md mt-2 outline-none border-none">
-          Book Appointment
-        </button>
-      </div>
-    </div>
-  )
-}
+// const DoctorCard = (props) => {
+//   return (
+    
+//   )
+// }
 
 export default AppointmentsTab
