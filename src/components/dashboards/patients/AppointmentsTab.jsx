@@ -7,6 +7,9 @@ import File from "../../../assets/file.svg"
 import Dots from "../../../assets/dots.svg"
 import Arrow from "../../../assets/arrow-left.svg"
 import Doc from "../../../assets/doctor_img.png"
+import Morning from "../../../assets/morning.svg"
+import Noon from "../../../assets/noon.svg"
+import Night from "../../../assets/night.svg"
 import { useState } from "react"
 
 const AppointmentsTab = () => {
@@ -205,8 +208,54 @@ const AppointmentsTab = () => {
               ))}
             </div>
           </div>
-          <div className="col-span-3 row-span-1 order-1 bg-green-600 py-12 rounded-[1.25rem]">
+          <div className="col-span-3 row-span-1 order-1 bg-white p-4 rounded-[1.25rem]">
+            <div className="flex gap-1 w-3/5 items-center">
+              <div className="flex gap-2 w-3/4 items-center justify-center p-2 py-1 border-b border-[#d9d9d9]">
+                <p className="text-md text-[#cccccc] font-bold">Medical Prescription</p>
+                <p className="flex items-center justify-center w-[1.4rem] h-[1.4rem] bg-[#f3f3f3] text-xs text-[#999999] rounded-full font-bold">03</p>
+              </div>
+              <div className="flex gap-2 w-3/4 items-center justify-center p-2 py-1 border-b border-[#d9d9d9]">
+                <p className="text-md text-[#cccccc] font-bold">Treatment Plans</p>
+                <p className="flex items-center justify-center w-[1.4rem] h-[1.4rem] bg-[#f3f3f3] text-xs text-[#999999] rounded-full font-bold">05</p>
+              </div>
+            </div>
             
+            <div className="flex gap-6 mt-8">
+              <div className="px-2">
+                <div className="flex gap-3 mb-3">
+                  <p className="text-sm text-[#262626] font-bold bg-[#d9f2e5] rounded-3xl text-center px-4 py-1">Oral Usage</p>
+                  <p className="text-sm text-[#262626] font-bold bg-[#fff5cc] rounded-3xl text-center px-4 py-1">Injection</p>
+                </div>
+                <p className="font-bold text-xl">Diacura drug 1000mg</p>
+                <p className="font-semibold text-sm text-[#666666] mb-2">To regulate the blood sugar level</p>
+                <p className="font-semibold text-xs text-[#666666]">Note: To be taken after each meals</p>
+              </div>
+              <div className="w-[65%] bg-[#f7fcff] py-4 px-4 rounded-lg">
+                <div className="flex justify-between text-[#787879]">
+                  <div className="text-center">
+                    <p className="text-sm font-semibold">Day</p>
+                    <p className="text-xs font-semibold">(7am - 10am)</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-sm font-semibold">Night</p>
+                    <p className="text-xs font-semibold">(7pm - 10pm)</p>
+                  </div>
+                </div>
+                <div className="flex">
+                  <img src={Morning} alt="" />
+                  <div></div>
+                  <img src={Noon} alt="" />
+                  <div></div>
+                  <img src={Night} alt="" />
+                </div>
+                <div>
+                  <p>1 tablet</p>
+                  <p>3hrs: 30mins Remaining</p>
+                  <p>1 tablet</p>
+                </div>
+              </div>
+            </div>
+
           </div>
           <div className="col-span-3 order-3 rounded-[1.25rem] bg-white">
             <div className="rounded-t-[1.25rem] flex">
@@ -391,11 +440,5 @@ const AppointmentsTab = () => {
     </>
   )
 }
-
-// const DoctorCard = (props) => {
-//   return (
-    
-//   )
-// }
 
 export default AppointmentsTab
