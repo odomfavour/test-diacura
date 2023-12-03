@@ -14,7 +14,8 @@ import Patients from "./Patients";
 import ContentManagement from "./ContentManagement";
 
 const UserManagementFrame = () => {
-  const { activeTab, toggleNav, setToggleNav } = AdminMenuContextProvider();
+  const { activeTab, toggleNav, setToggleNav, setActiveTab } =
+    AdminMenuContextProvider();
   const [openProfile, setOpenProfile] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   return (
@@ -134,7 +135,10 @@ const UserManagementFrame = () => {
               <p className=" text-xl font-bold text-[#3891CA]">Filter</p>
             </div>
             {/*plus box*/}
-            <div className="w-[59px] h-14 bg-[#3891CA] rounded flex items-center justify-center">
+            <div
+              className="w-[59px] h-14 bg-[#3891CA] rounded flex items-center justify-center cursor-pointer"
+              onClick={() => setActiveTab("Content upload")}
+            >
               <TiPlus className="text-white w-[w-24px] h-[24px]" />
             </div>
           </div>
