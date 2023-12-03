@@ -25,11 +25,11 @@ const Hero = () => {
 
                     <div>
                         <div className="relative">
-                            <img className="lg:z-[1000]" src={icon} alt="patient" />
+                            <img className="lg:z-[1000] relative" src={icon} alt="patient" />
                             <img className=" lg:flex hidden  -z-10 absolute lg:top-[310px] lg:left-[280px]" src={icon2} alt="icon2" />
                             <img className=" lg:flex hidden absolute  -z-10 top-[-20px]  lg:left-[-30px]" src={icon3} alt="icon3 " />
 
-                            <div className=" lg:w-[287px] w-[252px]   absolute left-[60px] top-[230px]  h-[60px] lg:h-[79px] shadow-2xl lg:p-3 p-2 lg:absolute lg:top-[390px] lg:left-[-110px] bg-[#FFF] rounded">
+                            <div className=" lg:w-[287px] w-[252px] lg:z-[1000]  absolute left-[60px] top-[230px]  h-[60px] lg:h-[79px] shadow-2xl lg:p-3 p-2 lg:absolute lg:top-[390px] lg:left-[-110px] bg-[#FFF] rounded">
                                 <div className="flex gap-2">
                                     <img className="lg:w-[25px] lg:h-[25px] w-[15px] h-[15px]" src={circle} alt="circle" />
                                     <p className="lg:text-[16px] text-[14px] font-normal font-Open-sans text-[#868686] lg:mt-0 mt-[-2px]">Expert Doctors</p>

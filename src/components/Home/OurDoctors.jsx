@@ -3,6 +3,7 @@ import doctor from "../../assets/images/home/doctor.jpg";
 import chevron_left from "../../assets/icons/home/chevron-left.svg";
 import chevron_right from "../../assets/icons/home/chevron-right.svg";
 import slide_count from "../../assets/icons/home/slide-count.svg";
+import icon from "/src/assets/images/home/doc-layer.png"
 
 const OurDoctors = () => {
   return (
@@ -14,12 +15,13 @@ const OurDoctors = () => {
           </h2>
         </div>
         <div className="flex flex-col lg:flex-row items-center gap-[3rem] lg:gap-[3.38rem] lg:border lg:border-[#CCC] lg:rounded-[0.875rem] lg:shadow-bigBox ">
-          <div className="lg:w-[30.5rem] lg:h-[26.9325rem]">
+          <div className=" relative lg:w-[30.5rem] lg:h-[26.9325rem] z-[1000px]">
             <img
               src={doctor}
               alt="A doctor"
-              className="w-full lg:h-full lg:rounded-l-[0.875rem]"
+              className="w-full lg:h-full lg:rounded-l-[0.875rem] z-[1000px]"
             />
+            <img className=" absolute top-[160px] z-[-80] left-[-214px] lg:flex md:flex hidden" src={icon} alt="" />
           </div>
           <div className="lg:w-[40.5625rem]">
             <h4 className="text-[#232323] text-[1.125rem] lg:text-[1.5rem] font-bold leading-normal mb-[0.5rem] lg:mb-[0.88rem]">

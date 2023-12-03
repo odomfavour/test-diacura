@@ -23,7 +23,7 @@ const AdminDashboardSideBar = () => {
     <aside className="relative">
       {/* Side bar */}
       <div
-        className={`w-[18.75rem] md:h-[64rem] h-[55rem] bg-[#094063] md:pb-[5rem] pb-[2rem] absolute lg:static ${
+        className={`w-[18.75rem] md:min-h-[64rem] bg-[#094063] md:pb-[5rem] pb-[2rem] absolute lg:static ${
           toggleNav ? "left-0" : "-left-[50rem]"
         } top-0 z-20 transition-all duration-500`}
       >
