@@ -150,7 +150,7 @@ const AppointmentsTab = () => {
 
   return (
     <>
-      <section className={`${bookDoctor !== null ? 'hidden' : ''}`}>
+      <section className={`${bookDoctor !== null ? 'hidden' : ''}`}>  
         <div className="bg-white rounded-[1.25rem] px-7 py-4 mb-5">
           <div className="flex items-center">
             <p className="mr-auto text-[#333333] font-semibold">Available Doctors</p>
@@ -325,10 +325,10 @@ const AppointmentsTab = () => {
       <section className={`bg-white rounded-[1.25rem] px-4 pb-5 ${bookDoctor === null ? 'hidden' : ''}`}>
         <div className="flex items-center gap-4 py-4">
           <img className="h-5 cursor-pointer" src={Arrow} alt="" onClick={cancelBooking} />
-          <p className="font-bold text-xl">Book Appointments</p>
+          <p className="font-bold lg:text-xl text-md">Book Appointments</p>
         </div>
-        <div className="flex gap-12">
-          <div className="flex flex-col justify-center items-center border rounded-md py-4 px-6 w-[18rem]">
+        <div className="flex xl:flex-row flex-col sm:items-center xl:items-stretch mt-6 lg:mt-0 gap-12">
+          <div className="flex flex-col justify-center items-center border rounded-md xl:mt-3 py-4 px-6 w-[18rem]">
             <img className="h-[8rem] mb-4" src={Doc} alt="" />
             <p className="text-[#666666] font-bold text-lg mb-1">Dr. Michael Jones</p>
             <p className="font-semibold text-[#666666] text-sm mb-2">Endocrinologist / Generalist.</p>
@@ -348,12 +348,12 @@ const AppointmentsTab = () => {
           <div>
             <div>
               <p className="font-semibold text-lg text-[#666666] mb-6">Select Date</p>
-              <div className="grid grid-rows-1 grid-cols-6 gap-10 mb-5">
+              <div className="grid lg:grid-rows-1 md:grid-rows-1 grid-rows-2 lg:grid-cols-6 md:grid-cols-6 grid-cols-3 lg:gap-10 xl:gap-4 gap-4 mb-5">
                 {datePicker.map((card, index) => (
-                  <div className={`${dateSelect === index ? 'bg-[#3891ca]' : 'bg-[#cfe5f2]'} py-2 px-5 rounded-md cursor-pointer`} key={index} onClick={() => selectDate(index)} >
-                    <p className={`text-sm font-semibold text-center ${dateSelect === index ? 'text-white' : 'text-[#7695a9]'}`}>{card.month}</p>
-                    <p className={`py-1 text-2xl font-extrabold text-center ${dateSelect === index ? 'text-white' : 'text-[#7090a5]'}`}>{card.date}</p>
-                    <p className={`text-sm font-semibold text-center ${dateSelect === index ? 'text-white' : 'text-[#7695a9]'}`}>{card.day}</p>
+                  <div className={`flex flex-col items-center ${dateSelect === index ? 'bg-[#3891ca]' : 'bg-[#cfe5f2]'} py-2 px-5 rounded-md cursor-pointer`} key={index} onClick={() => selectDate(index)} >
+                    <p className={`text-sm font-semibold ${dateSelect === index ? 'text-white' : 'text-[#7695a9]'}`}>{card.month}</p>
+                    <p className={`py-1 text-2xl font-extrabold ${dateSelect === index ? 'text-white' : 'text-[#7090a5]'}`}>{card.date}</p>
+                    <p className={`text-sm font-semibold ${dateSelect === index ? 'text-white' : 'text-[#7695a9]'}`}>{card.day}</p>
                   </div>
                 ))}
               </div>
@@ -361,9 +361,9 @@ const AppointmentsTab = () => {
 
             <div>
               <p className="font-semibold text-lg text-[#666666] mb-6">Select time</p>
-              <div className="grid grid-rows-2 grid-cols-4 gap-x-10 gap-y-4">
+              <div className="grid lg:grid-rows-2 grid-rows-3 lg:grid-cols-4 grid-cols-3 lg:gap-x-10 xl:gap-x-4 gap-x-4 gap-y-4">
                 {timeData.map((item, index) => (
-                  <div className={`rounded-md py-4 cursor-pointer ${timeSelect === index ? 'bg-[#107bc0]' : 'bg-[#d0eafb]'}`} key={index} onClick={() => selectTime(index)}>
+                  <div className={`rounded-md py-4 px-3 cursor-pointer flex justify-center items-center ${timeSelect === index ? 'bg-[#107bc0]' : 'bg-[#d0eafb]'}`} key={index} onClick={() => selectTime(index)}>
                     <p className={`text-xs font-bold text-center ${timeSelect === index ? 'text-white' : 'text-[#7090a5]'}`}>{item.time}</p>
                   </div>
                 ))}
@@ -374,15 +374,15 @@ const AppointmentsTab = () => {
       
         <div className="mt-8">
           <p className="text-[#666666] font-semibold">Note</p>
-          <textarea className="border border-[#bcc6d2] outline-none p-2 mt-4 w-full rounded-md text-[#666666]" name="" id="" cols="30" rows="10" placeholder="Write a note to your doctor">
+          <textarea className="border border-[#bcc6d2] outline-none p-2 mt-4 w-full rounded-md text-[#666666]" name="" id="" cols="30" rows="6" placeholder="Write a note to your doctor">
             
           </textarea>
 
           <div className="mt-6 flex items-center gap-5 justify-end">
-            <button className="bg-white text-[#107bc0] text-sm font-bold py-3 px-10 rounded-md mt-2 outline-none border border-[#107bc0] transition ease-out delay-10 hover:bg-[#107bc0] hover:text-white">
+            <button className="bg-white text-[#107bc0] text-sm font-bold py-3 rounded-md mt-2 outline-none border border-[#107bc0] transition ease-out delay-10 hover:bg-[#107bc0] hover:text-white w-2/4 md:w-1/5">
               Back
             </button>
-            <button className="bg-[#107bc0] text-white text-sm font-bold py-3 px-6 rounded-md mt-2 outline-none border border-[#107bc0] transition ease-out delay-10 hover:bg-white hover:text-[#107bc0]">
+            <button className="bg-[#107bc0] text-white text-sm font-bold py-3 px-6 rounded-md mt-2 outline-none border border-[#107bc0] transition ease-out delay-10 hover:bg-white hover:text-[#107bc0] w-2/4 md:w-1/3">
               Book Appointment
             </button>
           </div>
