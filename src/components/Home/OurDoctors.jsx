@@ -4,8 +4,17 @@ import chevron_left from "../../assets/icons/home/chevron-left.svg";
 import chevron_right from "../../assets/icons/home/chevron-right.svg";
 import slide_count from "../../assets/icons/home/slide-count.svg";
 import icon from "/src/assets/images/home/doc-layer.png"
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
+import { useEffect } from 'react';
+
 
 const OurDoctors = () => {
+
+  useEffect(() => {
+    // Initialize AOS
+    AOS.init();
+  }, []); // Run this effect only once after the component mounts
   return (
     <section>
       <div className="max-w-[35rem] lg:max-w-[75.0625rem]  mx-auto px-[1.5rem] mb-[7.19rem] lg:mb-[11.81rem] mt-[6.25rem] lg:mt-[7.88rem]">
@@ -38,7 +47,7 @@ const OurDoctors = () => {
             </p>
             <Link
               to={"/"}
-              className="lg:flex items-center lg:justify-center lg:mx-0 flex justify-center mx-auto bg-[#107BC0] w-[9.0625rem] md:w-[11.25rem] h-[2.5rem] md:h-[3.5rem] px-[2rem] py-[0.75rem] md:py-[1.12rem] text-white text-[0.875rem] md:text-[1.25rem] font-bold leading-normal rounded-[0.25rem]"
+              className="lg:flex items-center hover:bg-[#9353e5] lg:justify-center lg:mx-0 flex justify-center mx-auto bg-[#107BC0] w-[9.0625rem] md:w-[11.25rem] h-[2.5rem] md:h-[3.5rem] px-[2rem] py-[0.75rem] md:py-[1.12rem] text-white text-[0.875rem] md:text-[1.25rem] font-bold leading-normal rounded-[0.25rem]"
             >
               Learn more
             </Link>

@@ -1,18 +1,26 @@
 import { FaLongArrowAltLeft } from "react-icons/fa";
-// import QuizModalThree from "./QuizModalThree";
-// import { useState } from "react";
+import QuizModalThree from "./QuizModalThree";
+import { useEffect } from "react";
 
 // eslint-disable-next-line react/prop-types
-const QuizModalTwo = ({ displayNextModal }) => {
+const QuizModalTwo = ({ displayNextModal, currentModalIndex, setCurrentModalIndex, showQuestionModal, setShowQuestionModa, showModalsInSequence }) => {
 
 
     // Function to handle the click event for the 'Next' button
+
+
+    useEffect(() => {
+
+
+
+    }, [setCurrentModalIndex]); // Run this effect only once after the component mounts
+
     const handleNextClick = () => {
         // Call the displayNextModal function passed as props to move to the next modal
+        showModalsInSequence()
+        setCurrentModalIndex(currentModalIndex + 1);
         displayNextModal();
     };
-
-
 
 
     return (
@@ -57,7 +65,7 @@ const QuizModalTwo = ({ displayNextModal }) => {
                     </div>
 
                 </form>
-                {/* {nextQuestion && <QuizModalThree />} */}
+                {currentModalIndex === 1 && <QuizModalThree />}
             </div>
 
 

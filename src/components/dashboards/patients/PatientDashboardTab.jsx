@@ -67,8 +67,8 @@ const PatientDashboardTab = () => {
         </p>
       </div>
 
-      <div className=" lg:flex lg:flex-row lg:gap-[100px] mt-5 md:flex md:flex-row flex flex-col ">
-        <div className="lg:w-[608px]  shadow-lg rounded-2xl lg:h-[314px] bg-[#FFF]">
+      <div className=" lg:flex lg:flex-row lg:gap-[45px] mt-5 md:flex md:flex-row flex flex-col ">
+        <div className="lg:w-[708px] md:w-[608px] w-[608px] shadow-lg rounded-2xl lg:h-[314px] bg-[#FFF]">
           <div className="flex p-10 justify-between">
             <div>
               <div className="flex gap-4">
@@ -229,7 +229,7 @@ const PatientDashboardTab = () => {
             <p className="mt-[70px] font-semibold text-[14px] text-center lg:w-[168px] lg:h-[38px] flex justify-center mx-auto">
               Click the “PLAY” button to start playing.
             </p>
-            <button onClick={toggleModal} className="mt-8 flex justify-center mx-auto">
+            <button onClick={showModalsInSequence} className="mt-8 flex justify-center mx-auto">
               <img src={btn} alt="" />
             </button>
 
@@ -237,7 +237,7 @@ const PatientDashboardTab = () => {
               Terms and conditions apply
             </p>
           </div>
-          {showModal && <QuizModalTwo displayNextModal={displayNextModal} />}
+          {showModal && <QuizModalTwo displayNextModal={displayNextModal} showModalsInSequence={showModalsInSequence} setCurrentModalIndex={setCurrentModalIndex} currentModalIndex={currentModalIndex} setShowQuestionModal={setShowQuestionModal} showQuestionModal={showQuestionModal} />}
 
 
 
