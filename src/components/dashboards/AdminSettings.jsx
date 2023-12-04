@@ -4,6 +4,8 @@ import { Edit } from '../../assets/icons/admin-dashboard/Edit';
 import { useRef, useState } from 'react';
 import Save from '../../assets/icons/admin-dashboard/Save';
 import propTypes from 'prop-types';
+import LogOutPopup from './LogOutPopup';
+import { AdminMenuContextProvider } from '../../context/AdminSidebarContext';
 
 const Settings = ({ isSaved, setisSaved }) => {
   let adminData = {
@@ -16,6 +18,7 @@ const Settings = ({ isSaved, setisSaved }) => {
     city: '',  
     zipcode: ''    
   }
+  const { isLogout, setisLogout } = AdminMenuContextProvider();
   const [isformFilled, setisFormFilled] = useState(false);
   const [admin, setAdmin] = useState(adminData);
   const [isEditing, setisEditing] = useState(false);
@@ -70,9 +73,9 @@ const Settings = ({ isSaved, setisSaved }) => {
           <h3 className='font-bold text-2xl'>Bio Data</h3>
           {isformFilled ? (
               <div className='-mb-2'>
-                <button type='submit' className='cursor-pointer flex items-center gap-2 bg-[#CFE5F2] py-[18px] px-8 rounded'>
+                <button type='submit' className='cursor-pointer flex items-center gap-2 bg-[#CFE5F2] lg:py-[18px] p-2 lg:px-8 rounded'>
                   <Save />
-                  <span className='text-[#107BC0] font-bold text-base'>Save Changes</span>
+                  <span className='text-[#107BC0] font-bold text-xs xl:text-base'>Save Changes</span>
                 </button>
               </div>
             ) : (
@@ -94,17 +97,29 @@ const Settings = ({ isSaved, setisSaved }) => {
             </div>
             <div>
               <label htmlFor="email" className="admin-kyc-label">Email Address</label>
-              <input type="email" name="email" id="email" placeholder='rachealaill@gmail.com' className='patient-kyc-input admin-input' />
+              <input type="email" name="email" id="email" placeholder='rachealaill@gmail.com'
+                 className='patient-kyc-input admin-input'
+                 onChange={handleInputChange}                 
+                 onBlur={handleBlur}
+              />
             </div>
           </div>
           <div className="patient-kyc-input-col">
             <div className='mb-5'>
               <label htmlFor="lname" className="admin-kyc-label">Last name</label>
-              <input type="text" name="lname" id="lname" placeholder='Ali' className='patient-kyc-input admin-input' />
+              <input type="text" name="lname" id="lname" placeholder='Ali'
+                 className='patient-kyc-input admin-input'
+                 onChange={handleInputChange}                  
+                 onBlur={handleBlur}
+              />
             </div>
             <div>
               <label htmlFor="phone" className="admin-kyc-label">Phone no.</label>
-              <input type="tel" name="phone" id="phone" placeholder='+234' className='patient-kyc-input admin-input' />
+              <input type="tel" name="phone" id="phone" placeholder='+234'
+                 className='patient-kyc-input admin-input'
+                 onChange={handleInputChange}                  
+                 onBlur={handleBlur} 
+              />
             </div>
           </div>
         </div>
@@ -124,6 +139,7 @@ const Settings = ({ isSaved, setisSaved }) => {
               <label htmlFor="country" className="admin-kyc-label">Country of Residence</label>
               <input type="text" name="country" id="country" placeholder='Nigeria'
                  className='patient-kyc-input admin-input'
+                 onChange={handleInputChange}
                  ref={personalInputRef}
                  onBlur={handleBlur}
               />
@@ -131,23 +147,36 @@ const Settings = ({ isSaved, setisSaved }) => {
             <div>
               <label htmlFor="company" className="admin-kyc-label">Company/Hospital name</label>
               <input type="text" name="company" id="company" placeholder='Diacura medical centre'
-                className='patient-kyc-input admin-input'                
+                className='patient-kyc-input admin-input'  
+                onChange={handleInputChange}                
+                onBlur={handleBlur}              
               />
             </div>
           </div>
           <div className="patient-kyc-input-col">
             <div className='mb-5'>
               <label htmlFor="city" className="admin-kyc-label">City/State</label>
-              <input type="text" name="city" id="city" placeholder='Ikeja, Lagos state.' className='patient-kyc-input admin-input' />
+              <input type="text" name="city" id="city" placeholder='Ikeja, Lagos state.'
+                className='patient-kyc-input admin-input'
+                onChange={handleInputChange}                
+                onBlur={handleBlur} 
+              />
             </div>
-            <div>
+            <div className='mb-10 xl:mb-0'>
               <label htmlFor="zipcode" className="admin-kyc-label">Zip code</label>
-              <input type="tel" name="zipcode" id="zipcode" placeholder='110001' className='patient-kyc-input admin-input' />
+              <input type="tel" name="zipcode" id="zipcode" placeholder='110001' 
+                  className='patient-kyc-input admin-input'
+                  onChange={handleInputChange}                  
+                  onBlur={handleBlur} 
+              />
             </div>
           </div>
         </div>
       </div>
       </form>
+      {isLogout && (
+          <LogOutPopup />
+      )}
     </div>
   )
 }
