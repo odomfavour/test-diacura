@@ -1,4 +1,4 @@
-import dashboardBgDesktop from "../../assets/images/home/dashboard-bg-desktop.svg";
+import dashboardBgDesktop from "/src/assets/images/home/dashboard.png"
 
 const OurDashboard = () => {
   return (

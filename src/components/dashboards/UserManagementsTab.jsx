@@ -1,8 +1,13 @@
+import ViewPatientProfile from "./ViewPatientProfile";
+import ViewDoctorProfile from "./ViewDoctorProfile";
 
 const UserManagementsTab = () => {
   return (
-    <div>UserManagementsTab</div>
-  )
-}
+    <section>
+      <ViewPatientProfile />
+      <ViewDoctorProfile />
+    </section>
+  );
+};
 
-export default UserManagementsTab
+export default UserManagementsTab;

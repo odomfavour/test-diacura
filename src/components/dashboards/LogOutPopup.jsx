@@ -8,8 +8,8 @@ const LogOutPopup = () => {
     return (
         <div className='relative'>
             <div className='flex items-center justify-center bg-[#020d1444] fixed left-0 top-0 w-full h-full z-20'>
-                <div className='bg-[#FFFFFF] rounded-[20px] shadow-xxl w-[90%] xl:w-[1/2]'>
-                    <div className='bg-[#FFF5F5] p-4 xl:p-5 rounded-t-[20px] text-center w-full'>
+                <div className='bg-[#FFFFFF] rounded-[20px] shadow-xxl w-[1/2]'>
+                    <div className='bg-[#FFF5F5] p-4 xl:p-5 rounded-t-[20px] text-center'>
                         <p className='text-[#EB3434] font-bold text-base'>SIGN OUT OF ACCOUNT</p>
                     </div>
                     <div className='text-center p-4 xl:p-10'>
