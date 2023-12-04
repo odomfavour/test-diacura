@@ -67,7 +67,7 @@ const PatientDashboardTab = () => {
         </p>
       </div>
 
-      <div className="flex gap-[100px] mt-5">
+      <div className=" lg:flex lg:flex-row lg:gap-[100px] mt-5 md:flex md:flex-row flex flex-col ">
         <div className="lg:w-[608px]  shadow-lg rounded-2xl lg:h-[314px] bg-[#FFF]">
           <div className="flex p-10 justify-between">
             <div>
@@ -113,7 +113,7 @@ const PatientDashboardTab = () => {
         </div>
       </div>
 
-      <div className="flex gap-[100px] ">
+      <div className="lg:flex lg:flex-row md:flex md:flex-row  flex flex-col lg:gap-[100px] ">
         <div>
           <div className=" lg:w-[756px] shadow-lg lg:h-[237px] bg-[#FFF] rounded-md mt-5 p-6">
             <div className="flex gap-3">
@@ -164,13 +164,13 @@ const PatientDashboardTab = () => {
             </div>
 
           </div>
-          <div className="flex gap-4">
+          <div className="lg:flex lg:justify-normal md:justify-normal justify-center  lg:flex-row md:flex md:flex-row flex flex-col lg:gap-4">
             <div className="lg:w-[357px] lg:h-[232px] shadow-lg bg-[#FFFF] rounded-md mt-3 p-5">
               <div className="flex justify-between">
                 <p>Recent Report</p>
                 <p> 23 Nov 2023</p>
               </div>
-              <div className=" mt-4 lg:w-[325px] lg:h-[144px] shadow-lg bg-[#FFFF] ">
+              <div className=" mt-4 lg:w-[325px] lg:h-[144px] w-[295px] shadow-lg bg-[#FFFF] ">
                 <p>Diabetes Management Update</p>
                 <p>diabetic Type 2, follows treatment plan. Recent visit shows stable blood sugar. Continue meds, diet, and monitoring.
                 </p>
