@@ -28,7 +28,7 @@ const LogIn = () => {
   return (
     <main className=" w-full h-[100vh] flex items-center justify-center font-Open_Sans">
       <LoginSuccess isUserLoggedIn={isUserLoggedIn} />
-      <div className="lg:w-[50%] w-[90%] lg:h-[90vh] h-fit bg-[#BBE1F61A] rounded-[20px] shadow-lg flex items-center justify-center py-3 lg:py-0">
+      <div className="lg:w-[50%] w-[90%]  h-fit bg-[#BBE1F61A] rounded-[20px] shadow-lg flex items-center justify-center py-3 lg:py-6">
         <div className="lg:w-[75%] w-full lg:h-[90%] h-[80%]  flex flex-col lg:gap-[40px] gap-[30px]  p-2 lg:p-0">
           <div className="w-full h-fit flex flex-col lg:gap-[20px] gap-[10px]">
             <img

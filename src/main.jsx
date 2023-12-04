@@ -4,12 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import "./index.css";
 import PatientKycContext from "./context/PatientKycContext.jsx";
+import AdminSidebarContext from "./context/AdminSidebarContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <PatientKycContext>
-        <App />
+        <AdminSidebarContext>
+          <App />
+        </AdminSidebarContext>
       </PatientKycContext>
     </BrowserRouter>
   </React.StrictMode>
