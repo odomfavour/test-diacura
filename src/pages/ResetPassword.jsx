@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Padlock from "../assets/Padlock.svg"
 import EyeClosed from "../assets/eye-off.svg"
 import EyeOpen from "../assets/eye-open.svg"
+import Checkmark from "../assets/checkmark.svg"
 
 const ResetPassword = () => {
   const [toggleVisibility, setToggleVisibility] = useState(false)
@@ -24,7 +25,7 @@ const ResetPassword = () => {
   return(
     <>
       <div className="flex flex-col justify-center items-center min-h-screen bg-[#f6fcff] font-Open-sans">
-        <div className="bg-[#f1f9ff] px-4 py-6 lg:py-12 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] rounded-[.8rem] shadow-md">
+        {/* <div className="bg-[#f1f9ff] px-4 py-6 lg:py-12 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] rounded-[.8rem] shadow-md">
           <div className="flex flex-col text-center">
             <img className="h-6" src={Padlock} alt="" />
             <p className="text-[#107bc0] text-[1rem] mt-2 mb-2 font-semibold">Reset Password</p>
@@ -71,6 +72,26 @@ const ResetPassword = () => {
               </button>
             </div>
           </form>
+        </div> */}
+        <ResetSuccess />
+      </div>
+    </>
+  )
+}
+
+const ResetSuccess = () => {
+  return (
+    <>
+      <div className="bg-[#f1f9ff] px-4 py-18 lg:py-[8rem] w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] rounded-[.8rem] shadow-md">
+        <div className="flex flex-col w-[80%] mx-auto">
+          <img className="h-12" src={Checkmark} alt="" />
+          <div>
+            <p className="text-center text-2xl font-bold text-[#107bc0] py-3">Password reset successfully</p>
+            <p className="text-center text-xs font-semibold text-[#666666]">Log in into your account with your new password.</p>
+          </div>
+          <button type="submit" className="bg-[#107bc0] border border-[#107bc0] mt-6 rounded-sm py-2 text-xs font-semibold text-white">
+            Log in
+          </button>
         </div>
       </div>
     </>
