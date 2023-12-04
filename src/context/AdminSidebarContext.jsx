@@ -7,6 +7,7 @@ const AdminSidebarContext = ({ children }) => {
   const [activeTab, setActiveTab] = useState("Dashboard");
   const [mode, setMode] = useState("light");
   const [toggleNav, setToggleNav] = useState(false);
+  const [isLogout, setisLogout] = useState(false);
 
   return (
     <AdminMenuContext.Provider
@@ -17,6 +18,8 @@ const AdminSidebarContext = ({ children }) => {
       setMode,
       toggleNav,
       setToggleNav,
+      isLogout,
+      setisLogout
     }}
   >
     {children}

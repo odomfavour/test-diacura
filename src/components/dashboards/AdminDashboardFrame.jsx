@@ -13,6 +13,7 @@ import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 
+
 const AdminDashboardFrame = () => {
   const { activeTab, toggleNav, setToggleNav } = AdminMenuContextProvider();
   const [openProfile, setOpenProfile] = useState(false);
@@ -116,7 +117,7 @@ const AdminDashboardFrame = () => {
           {activeTab === "User Managements" && <UserManageMentsTab />}
           {activeTab === "Doctor's KYC" && <DoctorsKycTab />}
           {activeTab === "Analytics / Feedbacks" && <AnalyticsFeedbacksTab />}
-          {activeTab === "Settings" && <SettingsTab />} 
+          {activeTab === "Settings" && <SettingsTab />}           
         </div>
       </div>
     </section>

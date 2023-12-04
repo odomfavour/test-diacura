@@ -14,10 +14,11 @@ import {
   HiOutlineFolderOpen,
 } from "react-icons/hi";
 
-const AdminDashboardSideBar = () => {
-  const { activeTab, setActiveTab, toggleNav, setToggleNav } =
-    AdminMenuContextProvider();
 
+const AdminDashboardSideBar = () => {
+  const { activeTab, setActiveTab, toggleNav, setToggleNav, setisLogout } =
+    AdminMenuContextProvider();
+  
   return (
     <aside className="relative">
       {/* Side bar */}
@@ -148,7 +149,7 @@ const AdminDashboardSideBar = () => {
                 </button>
               </li>
               <li className="md:w-[12.75rem] w-[10rem] flex justify-center ml-auto md:mr-[3rem] mr-[4.5rem] border border-white rounded-[0.625rem] px-[0.5rem] py-[1rem] ">
-                <button
+                <button onClick={() => setisLogout(true)}
                   type="button"
                   className="admin-dashboard-tab-button justify-center text-[1.125rem] text-white"
                 >

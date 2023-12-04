@@ -1,18 +1,23 @@
-import { useEffect } from 'react';
 import Delete from '../../assets/icons/admin-dashboard/Delete';
 import Save from '../../assets/icons/admin-dashboard/Save';
 import Updates from '../../assets/icons/admin-dashboard/updates';
+import { AdminMenuContextProvider } from '../../context/AdminSidebarContext';
+import LogOutPopup from './LogOutPopup';
 import Toggleslider from './toggleslider/Toggleslider';
 import propTypes from 'prop-types';
 
-const AccountManagement = ({ isSaved, setisSaved }) => {
-  
+const AccountManagement = ({ isSaved, setisSaved, setisaccountDelete }) => {
+  const { isLogout, setisLogout } = AdminMenuContextProvider();
   const savePassword = () => {
     setisSaved(true)
     setTimeout(() => {
       setisSaved(isSaved);
     }, 3000);
-  } 
+  }
+  
+  const handleAccountDelete = () => {
+    setisaccountDelete(true)
+  }
     return (
       <div>
         <div className="mt-8">
@@ -72,21 +77,28 @@ const AccountManagement = ({ isSaved, setisSaved }) => {
             <div className='flex justify-between items-end mt-4'>                
                 <p className='text-[#999999] font-semibold text-lg w-3/5'>Using this action will delete your account permanently, including all your saved data&apos;s.</p> 
                 <div className='w-[295px]'>
-                  <button className='w-full bg-white py-[18px] px-8 border border-[#EB3434] flex gap-2 items-center justify-center'>
+                  <button className='w-full bg-white py-[18px] px-8 border border-[#EB3434] flex gap-2 items-center justify-center'
+                    onClick={handleAccountDelete}
+                  >
                     <Delete />
                     <span className='text-[#EB3434] font-bold text-base'>Delete</span>
                   </button>
                 </div>                
             </div>     
           </div>
-        </div>        
+        </div> 
+        {isLogout && (
+          <LogOutPopup />
+        )}       
       </div>
     )
   };
 
   AccountManagement.propTypes = {
     isSaved: propTypes.bool,
-    setisSaved: propTypes.node
+    setisSaved: propTypes.node,
+    isaccountDelete: propTypes.bool,
+    setisaccountDelete: propTypes.node,
   }
   
   export default AccountManagement
