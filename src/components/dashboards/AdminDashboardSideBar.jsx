@@ -1,7 +1,7 @@
 import { AdminMenuContextProvider } from "../../context/AdminSidebarContext";
 import logo from "../../assets/images/admin-dashboard/dashboard-logo.svg";
 import logout from "../../assets/icons/admin-dashboard/logout.svg";
-import cross from "../../assets/icons/admin-dashboard/cross.svg";
+// import cross from "../../assets/icons/admin-dashboard/cross.svg";
 import separator from "../../assets/icons/admin-dashboard/separator.svg";
 import { TbLayoutGrid } from "react-icons/tb";
 import { FaRegUserCircle, FaChevronUp } from "react-icons/fa";
@@ -13,6 +13,7 @@ import {
   HiOutlineCog,
   HiOutlineFolderOpen,
 } from "react-icons/hi";
+import { LuCross } from "react-icons/lu";
 
 const AdminDashboardSideBar = () => {
   const { activeTab, setActiveTab, toggleNav, setToggleNav } =
@@ -22,7 +23,7 @@ const AdminDashboardSideBar = () => {
     <aside className="relative">
       {/* Side bar */}
       <div
-        className={`w-[18.75rem] md:h-[64rem] h-[55rem] bg-[#094063] md:pb-[5rem] pb-[2rem] absolute lg:static ${
+        className={`w-[18.75rem] md:min-h-[64rem] bg-[#094063] md:pb-[5rem] pb-[2rem] absolute lg:static ${
           toggleNav ? "left-0" : "-left-[50rem]"
         } top-0 z-20 transition-all duration-500`}
       >
@@ -65,7 +66,12 @@ const AdminDashboardSideBar = () => {
                 <span>User Managements</span>
                 <FaChevronUp
                   className={`text-[1.55rem] ml-[1.8rem] transition-all duration-300 ${
-                    activeTab === "User Managements" ? "rotate-180" : "rotate-0"
+                    activeTab === "User Managements" ||
+                    activeTab === "Doctors" ||
+                    activeTab === "Patients" ||
+                    activeTab === "Content management"
+                      ? "rotate-180"
+                      : "rotate-0"
                   }`}
                 />
               </button>
@@ -74,23 +80,56 @@ const AdminDashboardSideBar = () => {
             {/* User Managements drop down menu */}
             <div
               className={`transition-all duration-300 ease-in-out ${
-                activeTab === "User Managements" ? "block" : "hidden"
+                activeTab === "User Managements" ||
+                activeTab === "Doctors" ||
+                activeTab === "Patients" ||
+                activeTab === "Content management"
+                  ? "block"
+                  : "hidden"
               }`}
             >
               <ul className="flex flex-col gap-[0.625rem] items-end text-[#CFE5F2]">
-                <li className="user-managements-tab">
+                <li
+                  onClick={() => setActiveTab("Doctors")}
+                  className={`user-managements-tab ${
+                    activeTab === "Doctors"
+                      ? "bg-[#CFE5F2] text-[#094063]"
+                      : "text-[#CFE5F2]"
+                  }`}
+                >
                   <button type="button" className="user-managements-tab-button">
-                    <img src={cross} alt="cross" />
+                    <LuCross
+                      alt="cross"
+                      className={` h-[24px] w-[24px] ${
+                        activeTab === "Doctors"
+                          ? "text-[#094063]"
+                          : "text-white"
+                      }`}
+                    />
                     <span>Doctors</span>
                   </button>
                 </li>
-                <li className="user-managements-tab">
+                <li
+                  onClick={() => setActiveTab("Patients")}
+                  className={`user-managements-tab ${
+                    activeTab === "Patients"
+                      ? "bg-[#CFE5F2] text-[#094063]"
+                      : "text-[#CFE5F2]"
+                  }`}
+                >
                   <button type="button" className="user-managements-tab-button">
                     <HiOutlineUsers className="text-[1.55rem]" />
                     <span>Patients</span>
                   </button>
                 </li>
-                <li className="user-managements-tab">
+                <li
+                  onClick={() => setActiveTab("Content management")}
+                  className={`user-managements-tab ${
+                    activeTab === "Content management"
+                      ? "bg-[#CFE5F2] text-[#094063]"
+                      : "text-[#CFE5F2]"
+                  }`}
+                >
                   <button type="button" className="user-managements-tab-button">
                     <HiOutlineFolderOpen className="text-[1.55rem]" />
                     <span>Content management</span>

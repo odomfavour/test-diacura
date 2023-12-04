@@ -36,7 +36,7 @@ const faqList = [
   },
 ];
 
-const FrequentlyAskedQuestions = ({align}) => {
+const FrequentlyAskedQuestions = ({ align }) => {
   const [faqs, setFaqs] = useState(faqList);
 
   //Toggle questions and answers
@@ -71,23 +71,20 @@ const FrequentlyAskedQuestions = ({align}) => {
                 >
                   <h3
                     onClick={() => openAnswer(id)}
-                    className={`text-base lg:text-[2rem] ${
-                      active ? "text-[#062D45]" : "text-[#666]"
-                    } font-bold leading-normal flex justify-between items-center cursor-pointer`}
+                    className={`text-base lg:text-[2rem] ${active ? "text-[#062D45]" : "text-[#666]"
+                      } font-bold leading-normal flex justify-between items-center cursor-pointer`}
                   >
                     <span>{question}</span>
                     <FaChevronDown
-                      className={`text-[1.55rem]  transition-all duration-300 ${
-                        active
+                      className={`text-[1.55rem]  transition-all duration-300 ${active
                           ? "rotate-180 text-[#107BC0]"
                           : "rotate-0 text-[#5D5D5D]"
-                      }`}
+                        }`}
                     />
                   </h3>
                   <p
-                    className={`${
-                      active ? "block" : "hidden"
-                    } mt-[1rem] lg:text-[1.5rem] lg:mt-[1.88rem] text-[#999] text-[0.75rem] font-semibold lg:font-normal leading-normal`}
+                    className={`${active ? "block" : "hidden"
+                      } mt-[1rem] lg:text-[1.5rem] lg:mt-[1.88rem] text-[#999] text-[0.75rem] font-semibold lg:font-normal leading-normal`}
                   >
                     {answer}
                   </p>

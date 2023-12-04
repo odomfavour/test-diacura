@@ -1,9 +1,29 @@
-
+import { useState } from "react";
+import EducationSinglePost from "./EducationSinglePost";
+import Blog from "./Blog";
 
 const EducationTab = () => {
-  return (
-    <div>EducationTab</div>
-  )
-}
+  const [singlePostPage, setSinglePostPage] = useState(!true);
+  const [singlePost, setSinglePost] = useState({});
 
-export default EducationTab
+  //View single page
+  const readMore = (post) => {
+    setSinglePost(post);
+    setSinglePostPage(true);
+  };
+
+  return (
+    <section>
+      {singlePostPage ? (
+        <EducationSinglePost
+          posts={singlePost}
+          setSinglePostPage={setSinglePostPage}
+        />
+      ) : (
+        <Blog readMore={readMore} />
+      )}
+    </section>
+  );
+};
+
+export default EducationTab;

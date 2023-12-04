@@ -18,8 +18,8 @@ const PatientsDashboardFrame = () => {
   const [openSearch, setOpenSearch] = useState(false);
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#F5F5F5]">
-      <div className="lg:pt-[1.25rem] lg:pl-[1.25rem] lg:pb-[1rem] lg:pr-[2.88rem] md:px-[1rem]">
+    <section className="relative w-full overflow-x-hidden overflow-y-auto bg-[rgb(245,245,245)]">
+      <div className="lg:pt-[1.25rem] lg:pl-[1.25rem] lg:pb-[1rem] xl:pr-[2.88rem] md:px-[1rem]">
         {/* header */}
         <header>
           <div className="flex lg:justify-between items-center px-[1rem] md:pt-[1.19rem] md:pb-[0.75rem] md:pr-[2.5rem] md:pl-[1.88rem] py-[1.5rem] mb-[1rem] bg-white md:rounded-[1.25rem]">
@@ -88,7 +88,7 @@ const PatientsDashboardFrame = () => {
           </div>
 
           {/* mobile */}
-          <h1 className="lg:hidden mb-[1.5rem] px-[1rem] text-[1.25rem] text-[#020D14] font-semibold leading-normal">
+          <h1 className="lg:hidden mb-[1.2rem] px-[1rem] text-[1.25rem] text-[#020D14] font-semibold leading-normal">
             {activeTab}
           </h1>
         </header>

@@ -6,7 +6,7 @@ const PatientsDashboard = () => {
   return (
     <>
     <PatientSidebarContext>
-      <main className="flex items-start">
+      <main className="flex">
         <PatientsDashboardSideBar />
         <PatientsDashboardFrame />
       </main>
