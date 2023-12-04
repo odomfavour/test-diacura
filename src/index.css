@@ -140,6 +140,21 @@
 .underline.menu3 {
     @apply left-[70%]; 
 }
+.underline2 {
+    height: 3px;
+    width: 0;
+    background-color: #3891CA; 
+    position: absolute;
+    bottom: 0;
+    transition: left 0.3s ease;
+    width: 50%;
+}
+.underline2.male {
+  @apply left-0
+}
+.underline2.female {
+    @apply left-[50%]
+}
 
 
 /* Patient Dashboard */
