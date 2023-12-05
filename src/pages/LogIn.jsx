@@ -6,24 +6,57 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import LoginSuccess from "../components/LoginSuccess";
+import axios from "axios";
+
 const LogIn = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
-  const isFormValid = email !== "" && password !== "";
+  const isFormValid = username !== "" && password !== "";
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
+  const handleUserNameChange = (event) => {
+    setUsername(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
+
+  const handleLogin = async () => {
+    console.log(username, password);
+    if (isFormValid) {
+      try {
+        const response = await axios.post(
+          "https://diacura-med.onrender.com/api/auth/login",
+          {
+            username,
+            password,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.status === 200 || response.status === 201) {
+          console.log("Login successful!");
+          setIsUserLoggedIn(true);
+        } else {
+          console.error("Login failed:", response.data);
+        }
+      } catch (error) {
+        console.error("Error during Login:", error);
+      }
+    } else {
+      console.error("Invalid form data");
+    }
+  };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setIsUserLoggedIn(true);
+    handleLogin();
   };
   return (
     <main className=" w-full h-[100vh] flex items-center justify-center font-Open_Sans">
@@ -42,17 +75,13 @@ const LogIn = () => {
             </p>
           </div>
           <div className="w-full h-fit flex flex-col lg:gap-[28px] gap-[18px]  mx-auto text-[#666666]">
-            <form
-              action=""
-              className=""
-              onSubmit={() => handleFormSubmit(event)}
-            >
+            <form action="" className="" onSubmit={handleFormSubmit}>
               <div className="w-full h-[56px] rounded border">
                 <input
                   type="text"
-                  placeholder="Email address"
-                  value={email}
-                  onChange={() => handleEmailChange(event)}
+                  placeholder="Username"
+                  value={username}
+                  onChange={() => handleUserNameChange(event)}
                   className="h-full w-full rounded lg:text-base text-sm placeholder:text-[#666666] pl-3 outline-[#107BC0]"
                 />
               </div>
@@ -84,7 +113,7 @@ const LogIn = () => {
                   />
                 )}
               </div>
-              <div className="flex items-center gap-[5px] w-[112px] h-[24px] mt-[10px]">
+              <div className="flex items-center gap-[5px] w-[112px] h-[24px] mt-[10px] border border-red-500">
                 <input type="checkbox" />
                 <p className="text-xs text-[#666666] ">Remember me</p>
               </div>
