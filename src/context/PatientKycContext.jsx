@@ -3,26 +3,37 @@ import PropTypes from "prop-types";
 export const PatientKycStore = createContext();
 
 const defaultPatientInfo = {
-    personalInformation: {},
-    diabetesType: "",
+    diabetes_type: "",
+    diabetes_info: {},
+    current_medications: [],
 }
 
 const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_PERSONAL_INFORMATION":
             return {
-                ...state, personalInformation: {...action.payload}
+                ...state, ...action.payload
             }
         case "ADD_DIABETES_TYPE":
             return {
                 ...state,
-                diabetesType: action.payload
+                diabetes_type: action.payload
             }
-        case "ADD_DIABETES_DIAGNOSIS_DETAILS":
+        case "ADD_DIABETES_DIAGNOSIS_INFO":
           return {
             ...state,
-            diabetesDiagnosisDetails: {...action.payload}
+            diabetes_info: {...action.payload}
           }
+          case "ADD_ALLERGIES_INFO":
+            return {
+              ...state,
+              diabetes_info: {...state.diabetes_info, ...action.payload}
+            }
+            case "ADD_CURRENT_MEDICATIONS":
+              return {
+                ...state,
+                current_medications: [...action.payload]
+              }
         default:
             break;
     }
@@ -41,6 +52,6 @@ export const UsePatientKycContext = () => {
 };
 
 PatientKycContext.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.element,
 };
 export default PatientKycContext;
