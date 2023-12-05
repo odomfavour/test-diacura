@@ -102,7 +102,7 @@ const FrequentlyAskedQuestions = ({ align }) => {
             always contact us. We will answer you shortly.
           </p>
           <Link
-            to={"/"}
+            to={"/contact-us"}
             className="flex items-center justify-center mx-auto bg-[#107BC0] w-[9.0625rem] md:w-[11.25rem] h-[2.5rem] md:h-[3.5rem] px-[2rem] py-[0.75rem] md:py-[1.12rem] text-white text-[0.875rem] md:text-[1.25rem] font-bold leading-normal rounded-[0.25rem]"
           >
             Contact Us

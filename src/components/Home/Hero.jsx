@@ -2,7 +2,7 @@ import icon from "/src/assets/images/patient.png";
 import icon2 from "/src/assets/images/Rec.png"
 import icon3 from "/src/assets/images/Rec2.png"
 import circle from "/src/assets/Icons/circle.png"
-
+import {Link} from "react-router-dom"
 
 const Hero = () => {
     return (
@@ -20,7 +20,7 @@ const Hero = () => {
                             Take control with intuitive tools.
                             Your wellness starts here.</p>
 
-                        <button className=" lg:flex lg:text-[20px] font-bold  lg:justify-center lg:px-3 pt-4 hidden lg:w-[179px] lg:h-[56px] text-[#FFFFFF] bg-[#107BC0] lg:mt-[120px] rounded-md">Get Started</button>
+                        <Link to={"/get-started"} className=" lg:flex lg:text-[20px] font-bold  lg:justify-center lg:px-3 pt-4 hidden lg:w-[179px] lg:h-[56px] text-[#FFFFFF] bg-[#107BC0] lg:mt-[120px] rounded-md">Get Started</Link>
                     </div>
 
                     <div>
