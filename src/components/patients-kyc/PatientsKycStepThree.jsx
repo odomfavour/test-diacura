@@ -6,9 +6,9 @@ import PatientsKycButtons from "./PatientsKycButtons";
 
 //Default form and form error values
 const defaultDiagnosisDetails = {
-  diagnosisDate: "",
-  trackInsulin: "",
-  insulinTherapy: "",
+  diagnosis_date: "",
+  track_insulin: "",
+  insulin_therapy: "",
 };
 
 const defaultDiagnosisErrors = {
@@ -32,21 +32,21 @@ const PatientsKycStepThree = () => {
     let validateForm = {};
     let isFormValidated = true;
 
-    if (!diabetesDiagnosisDetails.diagnosisDate) {
+    if (!diabetesDiagnosisDetails.diagnosis_date) {
       validateForm = { ...validateForm, diagnosisDate: true };
       isFormValidated = false;
     } else {
       validateForm = { ...validateForm, diagnosisDate: false };
     }
 
-    if (diabetesDiagnosisDetails.trackInsulin === "") {
+    if (diabetesDiagnosisDetails.track_insulin === "") {
       validateForm = { ...validateForm, trackInsulin: true };
       isFormValidated = false;
     } else {
       validateForm = { ...validateForm, trackInsulin: false };
     }
 
-    if (diabetesDiagnosisDetails.insulinTherapy === "") {
+    if (diabetesDiagnosisDetails.insulin_therapy === "") {
       validateForm = { ...validateForm, insulinTherapy: true };
       isFormValidated = false;
     } else {
@@ -56,7 +56,7 @@ const PatientsKycStepThree = () => {
 
     if (isFormValidated) {
       dispatch({
-        type: "ADD_DIABETES_DIAGNOSIS_DETAILS",
+        type: "ADD_DIABETES_DIAGNOSIS_INFO",
         payload: diabetesDiagnosisDetails,
       });
       navigate("/patients-kyc-step-four");
@@ -74,7 +74,7 @@ const PatientsKycStepThree = () => {
               <div className="flex flex-col md:flex-row items-start gap-[1.5rem] xl:gap-[6.5rem]">
                 <div className="max-w-[28.8125rem] w-full">
                   <label
-                    htmlFor="diagnosisDate"
+                    htmlFor="diagnosis_date"
                     className="block text-primary-color-light-blue-300 text-[1.2rem] lg:text-[1.5rem] font-semibold leading-normal mb-[1.2rem] md:mb-[2rem]"
                   >
                     Date of Diabetes Diagnosis
@@ -83,15 +83,15 @@ const PatientsKycStepThree = () => {
                     type="date"
                     min={"1850-01-01"}
                     max={ new Date().toISOString().split("T")[0]}
-                    id="diagnosisDate"
+                    id="diagnosis_date"
                     className={`w-full px-[0.75rem] py-[1rem] rounded-[0.5rem] ${
                       formError.diagnosisDate ? " border border-red-600 " : ""
                     }`}
-                    value={diabetesDiagnosisDetails.diagnosisDate}
+                    value={diabetesDiagnosisDetails.diagnosis_date}
                     onChange={(e) =>
                       setDiabetesDiagnosisDetails({
                         ...diabetesDiagnosisDetails,
-                        diagnosisDate: e.target.value,
+                        diagnosis_date: e.target.value,
                       })
                     }
                   />
@@ -121,7 +121,7 @@ const PatientsKycStepThree = () => {
                         onClick={() =>
                           setDiabetesDiagnosisDetails({
                             ...diabetesDiagnosisDetails,
-                            trackInsulin: true,
+                            track_insulin: "yes",
                           })
                         }
                       />
@@ -142,7 +142,7 @@ const PatientsKycStepThree = () => {
                         onClick={() =>
                           setDiabetesDiagnosisDetails({
                             ...diabetesDiagnosisDetails,
-                            trackInsulin: false,
+                            track_insulin: "no",
                           })
                         }
                       />
@@ -187,7 +187,7 @@ const PatientsKycStepThree = () => {
                       onClick={() =>
                         setDiabetesDiagnosisDetails({
                           ...diabetesDiagnosisDetails,
-                          insulinTherapy: "Pen Syringes",
+                          insulin_therapy: "Pen Syringes",
                         })
                       }
                     />
@@ -208,7 +208,7 @@ const PatientsKycStepThree = () => {
                       onClick={() =>
                         setDiabetesDiagnosisDetails({
                           ...diabetesDiagnosisDetails,
-                          insulinTherapy: "Pump",
+                          insulin_therapy: "Pump",
                         })
                       }
                     />
@@ -229,7 +229,7 @@ const PatientsKycStepThree = () => {
                       onClick={() =>
                         setDiabetesDiagnosisDetails({
                           ...diabetesDiagnosisDetails,
-                          insulinTherapy: "No Insulin",
+                          insulin_therapy: "No Insulin",
                         })
                       }
                     />
