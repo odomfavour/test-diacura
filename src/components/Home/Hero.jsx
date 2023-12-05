@@ -30,7 +30,7 @@ const Hero = () => {
                             and a supportive community.
                             Take control with intuitive tools.
                             Your wellness starts here.</p>
-                        <Link to="/login">
+                        <Link to="/get-started">
                             <button className=" lg:flex lg:text-[20px]  hover:bg-[#9353e5] font-bold  lg:justify-center lg:px-3 pt-4 hidden lg:w-[179px] lg:h-[56px] text-[#FFFFFF] bg-[#107BC0] lg:mt-[120px] rounded-md">Get Started</button></Link>
 
                     </div>
