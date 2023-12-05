@@ -1,6 +1,6 @@
 import { AdminMenuContextProvider } from "../../context/AdminSidebarContext";
 import AdminDashboardTab from "./AdminDashboardTab";
-import UserManageMentsTab from "./UserManageMentsTab";
+import UserManageMentsTab from "./UserManagementsTab.jsx";
 import DoctorsKycTab from "./DoctorsKycTab";
 import AnalyticsFeedbacksTab from "./AnalyticsFeedbacksTab";
 import SettingsTab from "./SettingsTab";
@@ -12,6 +12,8 @@ import logo from "../../assets/images/admin-dashboard/logo.svg";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
+import ContentUpload from "./ContentUpload.jsx";
+
 
 const AdminDashboardFrame = () => {
   const { activeTab, toggleNav, setToggleNav } = AdminMenuContextProvider();
@@ -35,11 +37,14 @@ const AdminDashboardFrame = () => {
 
             {/* Desktop */}
             <h1 className="hidden lg:block text-[1.25rem] lg:text-[2.25rem] text-[#020D14] font-semibold leading-normal">
-              {activeTab}
+              {activeTab === "Content upload" ? "User Management" : activeTab}
             </h1>
             {/* Search box */}
             <div className="flex items-center gap-[1rem] md:gap-[2rem] xl:gap-[4rem] ml-auto mr-[1.2rem] xl:m-0">
-              <div onClick={() => setOpenSearch(!openSearch)} className="xl:hidden">
+              <div
+                onClick={() => setOpenSearch(!openSearch)}
+                className="xl:hidden"
+              >
                 <img src={magnifier} alt="search" className="w-[1.5rem]" />
               </div>
               <div
@@ -66,7 +71,11 @@ const AdminDashboardFrame = () => {
               </div>
               <div className="relative flex w-[2.818rem] h-[3rem] bg-transparent-blue items-center justify-center rounded-[0.5rem]">
                 <img src={bell} alt="bell" />
-                <img src={dot} alt="notification" className="absolute top-[0.7rem] right-[0.7rem]"/>
+                <img
+                  src={dot}
+                  alt="notification"
+                  className="absolute top-[0.7rem] right-[0.7rem]"
+                />
               </div>
             </div>
 
@@ -116,7 +125,8 @@ const AdminDashboardFrame = () => {
           {activeTab === "User Managements" && <UserManageMentsTab />}
           {activeTab === "Doctor's KYC" && <DoctorsKycTab />}
           {activeTab === "Analytics / Feedbacks" && <AnalyticsFeedbacksTab />}
-          {activeTab === "Settings" && <SettingsTab />} 
+          {activeTab === "Settings" && <SettingsTab />}
+          {activeTab === "Content upload" && <ContentUpload />}
         </div>
       </div>
     </section>
