@@ -20,6 +20,7 @@ const AppointmentsTab = () => {
   const [dateSelect, setDateSelect] = useState(null)
   const [timeSelect, setTimeSelect] = useState(null)
   const [bookDoctor, setBookDoctor] = useState(null)
+  const [planSelect, setPlanSelect] = useState(1)
   const handleActiveSelect = (buttonNumber) => {
     setActiveButton(buttonNumber)
     console.log(activeButton)
@@ -41,6 +42,11 @@ const AppointmentsTab = () => {
 
   const cancelBooking = () => {
     setBookDoctor(null)
+  }
+
+  // Function for selecting between plans and prescription tabs
+  const SelectPlan = (index) => {
+    setPlanSelect(index)
   }
 
   // Data for available doctors
@@ -205,7 +211,7 @@ const AppointmentsTab = () => {
               <p  className="font-semibold">Dietry Recommendations</p>
             </div>
             {/* Prior to removing */}
-            <div className="overflow-y-scroll max-h-[20rem] scroll-set">
+            <div className="overflow-y-scroll lg:max-h-[30rem] max-h-[18rem] scroll-set">
               {DietryRecommend.map((item) => (
                 <div className="bg-[#fafbfc] mx-2 my-2 pb-2 shadow-md rounded-[.5rem] px-3">
                 <p className="pt-3 pb-1 font-semibold underline text-[1rem]">{item.name}</p>
@@ -215,29 +221,31 @@ const AppointmentsTab = () => {
               ))}
             </div>
           </div>
-          <div className="lg:col-span-3 col-span-4 row-span-1 lg:order-1 order-1 bg-white p-4 rounded-[1.25rem]">
-            <div className="flex gap-1 lg:w-3/5 w-full items-center">
-              <div className="flex gap-2 w-3/4 items-center justify-center p-2 py-1 border-b border-[#d9d9d9]">
-                <p className="text-md text-[#cccccc] font-bold">Medical Prescription</p>
-                <p className="flex items-center justify-center w-[1.4rem] h-[1.4rem] bg-[#f3f3f3] text-xs text-[#999999] rounded-full font-bold">03</p>
+          <div className="lg:col-span-3 col-span-4 row-span-1 lg:order-1 order-1 bg-white lg:p-4 p-2 rounded-[1.25rem]">
+            <div className="flex gap-1 lg:w-3/5 pt-3 lg:pt-0 w-full items-center">
+              <div className={`cursor-pointer flex gap-2 lg:w-3/4 w-2/4 items-center justify-center p-2 py-1 border-b-2 ${planSelect === 1 ? 'border-[#3891ca] text-[#3891ca]' : 'border-[#d9d9d9] text-[#ccc]'}`} onClick={() => SelectPlan(1)}>
+                <p className="lg:text-md text-sm font-bold">Medical Prescription</p>
+                <p className={`flex items-center justify-center w-[1.4rem] h-[1.4rem] bg-[#f3f3f3] text-[.65rem] rounded-full font-bold ${planSelect === 1 ? 'text-[#3891ca]' : 'text-[#999]'}`}>03</p>
               </div>
-              <div className="flex gap-2 w-3/4 items-center justify-center p-2 py-1 border-b border-[#d9d9d9]">
-                <p className="text-md text-[#cccccc] font-bold">Treatment Plans</p>
-                <p className="flex items-center justify-center w-[1.4rem] h-[1.4rem] bg-[#f3f3f3] text-xs text-[#999999] rounded-full font-bold">05</p>
+              <div className={`cursor-pointer flex gap-2 lg:w-3/4 w-2/4 items-center justify-center p-2 py-1 border-b-2 border-[#d9d9d9] ${planSelect === 2 ? 'border-[#3891ca] text-[#3891ca]' : 'border-[#d9d9d9] text-[#ccc]'}`} onClick={() => SelectPlan(2)}>
+                <p className="lg:text-md text-sm font-bold">Treatment Plans</p>
+                <p className={`flex items-center justify-center w-[1.4rem] h-[1.4rem] bg-[#f3f3f3] text-[.65rem] rounded-full font-bold ${planSelect === 2 ? 'text-[#3891ca]' : 'text-[#999]'}`}>05</p>
               </div>
             </div>
             
-            <div className="flex gap-6 mt-8">
-              <div className="px-2">
+            <div className="flex flex-col lg:flex-row gap-6 mt-8">
+              <div className="flex lg:flex-col items-center flex-col-reverse lg:px-2 px-0">
                 <div className="flex gap-3 mb-3">
-                  <p className="text-sm text-[#262626] font-bold bg-[#d9f2e5] rounded-3xl text-center px-4 py-1">Oral Usage</p>
-                  <p className="text-sm text-[#262626] font-bold bg-[#fff5cc] rounded-3xl text-center px-4 py-1">Injection</p>
+                  <p className="text-sm text-[#262626] font-bold bg-[#d9f2e5] rounded-3xl text-center px-4 py-2 w-[7rem] lg:py-1">Oral Usage</p>
+                  <p className="text-sm text-[#262626] font-bold bg-[#fff5cc] rounded-3xl text-center px-4 py-2 w-[7rem] lg:py-1">Injection</p>
                 </div>
-                <p className="font-bold text-xl">Diacura drug 1000mg</p>
-                <p className="font-semibold text-sm text-[#666666] mb-2">To regulate the blood sugar level</p>
-                <p className="font-semibold text-xs text-[#666666]">Note: To be taken after each meals</p>
+                <div className="text-center lg:text-start mb-4">
+                  <p className="font-bold lg:text-xl text-2xl mb-2 lg:mb-0">Diacura drug 1000mg</p>
+                  <p className="font-semibold lg:text-sm text-md text-[#666666] mb-2">To regulate the blood sugar level</p>
+                  <p className="font-semibold lg:text-xs text-sm text-[#666666]">Note: To be taken after each meals</p>
+                </div>
               </div>
-              <div className="w-[65%] bg-[#f7fcff] py-4 px-4 rounded-lg">
+              <div className="lg:w-[65%] w-full bg-[#f7fcff] py-4 px-4 rounded-lg">
                 <div className="flex justify-between text-[#787879]">
                   <div className="text-center">
                     <p className="text-sm font-semibold">Day</p>
@@ -250,21 +258,21 @@ const AppointmentsTab = () => {
                 </div>
                 <div className="flex items-center gap-1 px-6 my-2">
                   <img src={Morning} alt="" />
-                  <div className="border-b-2 w-[10rem] border-[#2494e4]"></div>
+                  <div className="border-b-2 w-[50%] border-[#2494e4]"></div>
                   <img src={Noon} alt="" />
-                  <div className="border-dashed border-b-2 w-[10rem]"></div>
+                  <div className="border-dashed border-b-2 w-[50%]"></div>
                   <img src={Night} alt="" />
                 </div>
-                <div className="flex justify-between px-3">
-                  <p className="text-xs text-[#666666] font-bold">1 tablet</p>
-                  <p className="text-xs text-[#666666] font-bold">3hrs: 30mins Remaining</p>
-                  <p className="text-xs text-[#666666] font-bold">1 tablet</p>
+                <div className="flex justify-between items-center px-3">
+                  <p className="text-xs text-[#666666] font-bold text-center">1 tablet</p>
+                  <p className="text-xs text-[#666666] font-bold px-6 lg:px-0 text-center">3hrs: 30mins Remaining</p>
+                  <p className="text-xs text-[#666666] font-bold text-center">1 tablet</p>
                 </div>
               </div>
             </div>
 
             <div className="flex gap-6 justify-end mt-3 me-5">
-              <p className="font-semibold">1 of 3</p>
+              <p className="font-semibold text-sm">1 of 3</p>
               <div className="flex items-center gap-6">
                 <img className="cursor-pointer" src={CaretLeft} alt="" />
                 <img className="cursor-pointer" src={CaretRight} alt="" />
@@ -274,17 +282,17 @@ const AppointmentsTab = () => {
           </div>
           <div className="lg:col-span-3 col-span-4 lg:order-3 order-2 rounded-[1.25rem] bg-white">
             <div className="rounded-t-[1.25rem] flex">
-              <button className={`w-2/4 font-bold py-3 text-[#232323] rounded-tl-[1.25rem] ${activeButton === 1 ? 'border-b-2 border-[#107bc0] bg-[#cfe5f2]' : ''}`} onClick={() => handleActiveSelect(1)}>
+              <button className={`w-2/4 text-sm px-2 font-bold py-3 text-[#232323] rounded-tl-[1.25rem] ${activeButton === 1 ? 'border-b-2 border-[#107bc0] bg-[#cfe5f2]' : ''}`} onClick={() => handleActiveSelect(1)}>
                 Appointment History
               </button>
-              <button className={`w-2/4 flex py-3 items-center justify-center gap-2 font-bold text-[#232323] rounded-tr-[1.25rem] ${activeButton === 2 ? 'border-b-2 border-[#107bc0] bg-[#cfe5f2]' : ''}`} onClick={() => handleActiveSelect(2)}>
+              <button className={`w-2/4 text-sm px-2 flex py-3 items-center justify-center gap-2 font-bold text-[#232323] rounded-tr-[1.25rem] ${activeButton === 2 ? 'border-b-2 border-[#107bc0] bg-[#cfe5f2]' : ''}`} onClick={() => handleActiveSelect(2)}>
                 Upcoming Appointment
-                <p className="bg-[#107bc0] rounded-full h-[1.3rem] w-[1.3rem] text-xs flex items-center justify-center text-white">03</p>
+                <p className="bg-[#107bc0] rounded-full h-[1.3rem] w-[1.3rem] text-xs items-center justify-center text-white hidden lg:flex">03</p>
               </button>
             </div>
             <div>
               {/* Needs to be fixed. Change from table to flexbox */}
-              <div className="max-h-[10rem] overflow-y-scroll">
+              <div className="lg:max-h-[13rem] max-h-[24rem] overflow-y-scroll">
                 <table className="table-auto w-full">
                   <thead className="bg-[#eef8ff]">
                     <tr>
