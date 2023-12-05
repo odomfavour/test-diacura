@@ -25,8 +25,8 @@ const Testimonials = () => {
           </p>
           <div className="absolute lg:static left-0 bottom-[7.06rem] flex justify-center lg:justify-start w-full">
             <Link
-              to={"/"}
-              className=" hover:bg-[#9353e5] flex items-center justify-center bg-[#107BC0] w-[9.0625rem] md:w-[11.25rem] h-[2.5rem] md:h-[3.5rem] px-[2rem] py-[0.75rem] md:py-[1.12rem] text-white text-[0.875rem] md:text-[1.25rem] font-bold leading-normal rounded-[0.25rem]"
+              to={"/get-started"}
+              className=" hover:bg-[#9353e5] flex items-center justify-center bg-[#107BC0] w-[9.0625rem] md:w-[12.25rem] h-[2.5rem] md:h-[3.5rem] md:px-[2rem] py-[0.75rem] md:py-[1.12rem] text-white text-[0.875rem] md:text-[1.25rem] font-bold leading-normal rounded-[0.25rem]"
             >
               Get started
             </Link>
