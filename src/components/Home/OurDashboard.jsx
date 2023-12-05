@@ -1,6 +1,16 @@
 import dashboardBgDesktop from "/src/assets/images/home/dashboard.png"
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
+import { useEffect } from 'react';
+
+
 
 const OurDashboard = () => {
+
+  useEffect(() => {
+    // Initialize AOS
+    AOS.init();
+  }, []); // Run this effect only once after the component mounts
   return (
     <section>
       <div className="bg-[#094063] px-[2.19rem] py-[4.38rem] lg:pt-[5.31rem] lg:pb-[9.06rem] lg:pr-[8.25rem] lg:pl-[9.94rem] flex flex-col items-center gap-[3.5rem] lg:gap-[6rem] text-center">
@@ -14,7 +24,8 @@ const OurDashboard = () => {
             even health education
           </p>
         </div>
-        <div>
+        <div data-aos="fade-up"
+          data-aos-duration="3000">
           <img
             src={dashboardBgDesktop}
             alt="Dashboard"

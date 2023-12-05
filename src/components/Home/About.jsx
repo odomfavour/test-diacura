@@ -1,6 +1,15 @@
 import { Data } from "./Data"
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
+
 
 const About = () => {
+
+    useEffect(() => {
+        // Initialize AOS
+        AOS.init();
+    }, []); // Run this effect only once after the component mounts
     return (
         <section className="bg-[#094063]">
 
@@ -9,9 +18,9 @@ const About = () => {
                 <h4 className="lg:pt-[40px]  pt-5 text-[20px] w-[267px] h-[54px] lg:w-[512px] lg:h-[98px] lg:flex lg:justify-center text-center mx-auto lg:text-[36px] font-Open-sans font-extrabold text-[#FFFFFF]  ">Why should you trust us ?
                     Get to know about us</h4>
 
-                <div className="lg:flex lg:flex-nowrap  lg:justify-center lg:gap-5 gap-3  flex flex-wrap  ">
+                <div className="lg:flex lg:flex-nowrap  lg:justify-center lg:gap-5 gap-3  flex flex-wrap  " data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                     {Data.map((info) => {
-                        3
+
 
                         const { id, Image, rating, content, text } = info
                         return (<>
