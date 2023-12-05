@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
 import PropTypes from "prop-types"
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
+import { useEffect } from 'react';
+
 
 const faqList = [
   {
@@ -50,6 +54,10 @@ const FrequentlyAskedQuestions = ({ align }) => {
     });
     setFaqs(newFaq);
   };
+  useEffect(() => {
+    // Initialize AOS
+    AOS.init();
+  }, []); // Run this effect only once after the component mounts
   return (
     <section>
       <div className="px-[1.5rem] py-[2.625rem] max-w-[74.8125rem] mx-auto">
@@ -77,8 +85,8 @@ const FrequentlyAskedQuestions = ({ align }) => {
                     <span>{question}</span>
                     <FaChevronDown
                       className={`text-[1.55rem]  transition-all duration-300 ${active
-                          ? "rotate-180 text-[#107BC0]"
-                          : "rotate-0 text-[#5D5D5D]"
+                        ? "rotate-180 text-[#107BC0]"
+                        : "rotate-0 text-[#5D5D5D]"
                         }`}
                     />
                   </h3>
@@ -103,7 +111,7 @@ const FrequentlyAskedQuestions = ({ align }) => {
           </p>
           <Link
             to={"/contact-us"}
-            className="flex items-center justify-center mx-auto bg-[#107BC0] w-[9.0625rem] md:w-[11.25rem] h-[2.5rem] md:h-[3.5rem] px-[2rem] py-[0.75rem] md:py-[1.12rem] text-white text-[0.875rem] md:text-[1.25rem] font-bold leading-normal rounded-[0.25rem]"
+            className=" hover:bg-[#9353e5] flex items-center justify-center mx-auto bg-[#107BC0] w-[9.0625rem] md:w-[11.25rem] h-[2.5rem] md:h-[3.5rem] px-[2rem] py-[0.75rem] md:py-[1.12rem] text-white text-[0.875rem] md:text-[1.25rem] font-bold leading-normal rounded-[0.25rem]"
           >
             Contact Us
           </Link>
