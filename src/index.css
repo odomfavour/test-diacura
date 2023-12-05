@@ -112,7 +112,7 @@
 
 /* Doctors KYC */
 .small-text {
-    @apply text-[#666666] font-normal text-sm
+    @apply text-[#666666] font-normal text-xs xl:text-sm
 }
 
 .upload-checkbox {
