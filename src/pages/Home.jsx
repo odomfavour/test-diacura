@@ -1,4 +1,3 @@
-
 import GenericLayouts from "../layouts/GenericLayouts";
 import About from "../components/Home/About"
 import Hero from "../components/Home/Hero"

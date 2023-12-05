@@ -2,11 +2,11 @@ import { createContext, useContext, useState } from "react";
 import PropTypes from "prop-types";
 const AdminMenuContext = createContext({});
 
-
 const AdminSidebarContext = ({ children }) => {
   const [activeTab, setActiveTab] = useState("Dashboard");
   const [mode, setMode] = useState("light");
   const [toggleNav, setToggleNav] = useState(false);
+  const [isLogout, setisLogout] = useState(false);
 
   return (
     <AdminMenuContext.Provider
@@ -17,6 +17,8 @@ const AdminSidebarContext = ({ children }) => {
       setMode,
       toggleNav,
       setToggleNav,
+      isLogout,
+      setisLogout
     }}
   >
     {children}
@@ -30,4 +32,4 @@ AdminSidebarContext.propTypes = {
 
 export const AdminMenuContextProvider = () => useContext(AdminMenuContext);
 
-export default AdminSidebarContext
+export default AdminSidebarContext;
