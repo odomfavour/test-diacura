@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export default axios.create({
-  baseURL: 'https://baseurl.com',
+  baseURL: 'https://diacura-med.onrender.com',
 });

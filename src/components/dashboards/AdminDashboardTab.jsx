@@ -43,7 +43,7 @@ const AdminDashboardTab = () => {
             // Other styles if needed
           };
           return (
-            <div key={id} className="lg:w-[335px] lg:h-[180px] md:w-[335px] md:h-[180px] h-[180px] rounded-md border border-[#CFE5F2]">
+            <div key={id} className="lg:w-[935px] lg:h-[180px] md:w-[335px] md:h-[180px] h-[180px] rounded-md border border-[#CFE5F2]">
               <div className="lg:flex lg:flex-nowrap md:flex md:flex-wrap flex p-3 lg:gap-4 md:gap-4 gap-4">
                 <div className="lg:w-[32px] lg:h-[32px] bg-[#094063] rounded-md">
                   <img className="p-1 px-1" src={Image} alt="icon" />
@@ -53,7 +53,7 @@ const AdminDashboardTab = () => {
               </div>
               <p className="p-3 text-[40px] mt-[-20px] font-bold text-[#999] font-Open-sans" >{Rate}</p>
               <div className="lg:w-[303px] lg:h-[40px] md:w-[403px] w-[303px] h-[40px] p-3 rounded-md">
-                <div className=" w-[303px] h-[40px] flex justify-between p-2 rounded-md mt-[-10px] " style={contentStyle}>
+                <div className=" lg:w-[323px] md:w-[303px] w-[303px] h-[40px] flex justify-between p-2 rounded-md mt-[-10px] " style={contentStyle}>
                   <p className="text-[#232323] font-normal text-[14px font-Open-sans]">{content}</p>
                   <img src={arrow} alt="arrow" />
                 </div>

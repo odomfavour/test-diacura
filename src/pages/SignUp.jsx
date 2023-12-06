@@ -4,9 +4,13 @@ import logo_apple from "../assets/images/logo_apple.svg";
 import logo_facebook from "../assets/images/logo_facebook.svg";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import UserRoleContext from "../context/UserRoleContext";
+import axios from "axios";
 
 const SignUp = () => {
+  const { role } = useContext(UserRoleContext);
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +24,40 @@ const SignUp = () => {
     username !== "" &&
     passwordConfirm !== "";
 
+  const handleRegistration = async () => {
+    console.log(username, email, password, passwordConfirm, role);
+    if (isFormValid) {
+      try {
+        const response = await axios.post(
+          "https://diacura-med.onrender.com/api/auth/register",
+          {
+            username,
+            email,
+            password,
+            confirm_password: passwordConfirm,
+            role,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.status === 200 || response.status === 201) {
+          console.log("Registration successful!");
+          // Redirect the user to the login page
+        } else {
+          console.error("Registration failed:", response.data);
+        }
+      } catch (error) {
+        console.error("Error during registration:", error);
+      }
+    } else {
+      console.error("Invalid form data");
+    }
+  };
+
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -30,6 +68,11 @@ const SignUp = () => {
 
   const handleUserNameChange = (event) => {
     setUsername(event.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleRegistration();
   };
   return (
     <main className=" w-full h-[100vh] flex items-center justify-center font-Open_Sans">
@@ -46,7 +89,7 @@ const SignUp = () => {
             </p>
           </div>
           <div className="w-full h-fit flex flex-col lg:gap-[15px] gap-[12px]  mx-auto text-[#666666]">
-            <form action="" className="">
+            <form action="" className="" onSubmit={handleSubmit}>
               <div className="w-full h-[56px] rounded border">
                 <input
                   type="text"

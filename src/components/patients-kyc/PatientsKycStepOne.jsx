@@ -6,10 +6,10 @@ import PatientsKycButtons from "./PatientsKycButtons";
 
 //Default form and form error values
 const defaultPersonalInfo = {
-  firstName: "",
-  lastName: "",
-  phoneNumber: "",
-  dateOfBirth: "",
+  first_name: "",
+  last_name: "",
+  phone_number: "",
+  date_of_birth: "",
   age: "",
   gender: "",
 };
@@ -37,7 +37,7 @@ const PatientsKycStepOne = () => {
   const setProperty = (e) => {
     setPersonalInformation({
       ...personalInformation,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value.trim(),
     });
   };
 
@@ -51,28 +51,28 @@ const PatientsKycStepOne = () => {
     let validateForm = {};
     let isFormValidated = true;
 
-    if (!NAME_REGEX.test(personalInformation.firstName.trim())) {
+    if (!NAME_REGEX.test(personalInformation.first_name.trim())) {
       validateForm = { ...validateForm, firstName: true };
       isFormValidated = false;
     } else {
       validateForm = { ...validateForm, firstName: false };
     }
 
-    if (!NAME_REGEX.test(personalInformation.lastName.trim())) {
+    if (!NAME_REGEX.test(personalInformation.last_name.trim())) {
       validateForm = { ...validateForm, lastName: true };
       isFormValidated = false;
     } else {
       validateForm = { ...validateForm, lastName: false };
     }
 
-    if (!personalInformation.dateOfBirth) {
+    if (!personalInformation.date_of_birth) {
       validateForm = { ...validateForm, dateOfBirth: true };
       isFormValidated = false;
     } else {
       validateForm = { ...validateForm, dateOfBirth: false };
     }
 
-    if (!PHONE_REGEX.test(personalInformation.phoneNumber.trim())) {
+    if (!PHONE_REGEX.test(personalInformation.phone_number.trim())) {
       validateForm = { ...validateForm, phoneNumber: true };
       isFormValidated = false;
     } else {
@@ -99,7 +99,7 @@ const PatientsKycStepOne = () => {
     if (isFormValidated) {
       dispatch({
         type: "ADD_PERSONAL_INFORMATION",
-        payload: personalInformation,
+        payload: {...personalInformation},
       });
       setPersonalInformation(defaultPersonalInfo);
       navigate("/patients-kyc-step-two");
@@ -122,7 +122,7 @@ const PatientsKycStepOne = () => {
             <div className="flex flex-col gap-[1.5rem] md:gap-[1.94rem] mb-[2.5rem] md:mb-[3.25rem]">
               <div className="patient-kyc-input-row">
                 <div className="patient-kyc-input-col">
-                  <label htmlFor="firstName" className="patient-kyc-label">
+                  <label htmlFor="first_name" className="patient-kyc-label">
                     First Name
                   </label>
                   <input
@@ -133,9 +133,9 @@ const PatientsKycStepOne = () => {
                         ? "border-red-600"
                         : "border-[#94A3B8]"
                     }`}
-                    id="firstName"
-                    name="firstName"
-                    value={personalInformation.firstName}
+                    id="first_name"
+                    name="first_name"
+                    value={personalInformation.first_name}
                     onChange={setProperty}
                   />
                   <span
@@ -147,7 +147,7 @@ const PatientsKycStepOne = () => {
                   </span>
                 </div>
                 <div className="patient-kyc-input-col">
-                  <label htmlFor="lastName" className="patient-kyc-label">
+                  <label htmlFor="last_name" className="patient-kyc-label">
                     Last Name
                   </label>
                   <input
@@ -158,9 +158,9 @@ const PatientsKycStepOne = () => {
                         ? "border-red-600"
                         : "border-[#94A3B8]"
                     }`}
-                    id="lastName"
-                    name="lastName"
-                    value={personalInformation.lastName}
+                    id="last_name"
+                    name="last_name"
+                    value={personalInformation.last_name}
                     onChange={setProperty}
                   />
                   <span
@@ -174,7 +174,7 @@ const PatientsKycStepOne = () => {
               </div>
               <div className="patient-kyc-input-row">
                 <div className="patient-kyc-input-col">
-                  <label htmlFor="phoneNumber" className="patient-kyc-label">
+                  <label htmlFor="phone_number" className="patient-kyc-label">
                     Phone Number
                   </label>
                   <input
@@ -185,9 +185,9 @@ const PatientsKycStepOne = () => {
                         ? "border-red-600"
                         : "border-[#94A3B8]"
                     }`}
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    value={personalInformation.phoneNumber}
+                    id="phone_number"
+                    name="phone_number"
+                    value={personalInformation.phone_number}
                     onChange={setProperty}
                   />
                   <span
@@ -199,7 +199,7 @@ const PatientsKycStepOne = () => {
                   </span>
                 </div>
                 <div className="patient-kyc-input-col">
-                  <label htmlFor="dateOfBirth" className="patient-kyc-label">
+                  <label htmlFor="ate_of_birth" className="patient-kyc-label">
                     Date of Birth
                   </label>
                   <input
@@ -211,9 +211,9 @@ const PatientsKycStepOne = () => {
                         ? "border-red-600"
                         : "border-[#94A3B8]"
                     }`}
-                    id="dateOfBirth"
-                    name="dateOfBirth"
-                    value={personalInformation.dateOfBirth}
+                    id="date_of_birth"
+                    name="date_of_birth"
+                    value={personalInformation.date_of_birth}
                     onChange={setProperty}
                   />
                   <span
