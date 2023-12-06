@@ -1,5 +1,5 @@
 import DoctorsKYCstep from "../../layouts/doctorsKYC/DoctorsKYCstep";
-import CloudUpload from "./../../assets/icons/doctors-kyc/cloud-upload.svg";
+// import cloudUpload from "../..`/assets/icons/doctors-kyc/cloud-upload.svg";
 import DoctorsKYCButtons from "./DoctorsKYCstepButtons";
 import { useNavigate } from "react-router-dom";
 import DoctorsKYCFileUpload from "./DoctorsKYCFileUpload";
@@ -86,7 +86,7 @@ const DoctorsKYCTwo = () => {
                   onDrop={handleDrop}
                   onDragOver={(e) => e.preventDefault()}
                 >
-                  <img src={CloudUpload} alt="Upload document here" />
+                  <img src="" alt="Upload document here" />
                 </div>
                   <p className="font-bold text-base text-[#666666]">
                     Drag & drop files or <span> </span>
