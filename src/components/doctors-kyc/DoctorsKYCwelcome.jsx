@@ -1,8 +1,8 @@
 import DoctorsKYC from "../../layouts/DoctorsKYC";
 import { MdAccessTime } from "react-icons/md";
-import one from "../../assets/icons/doctors-kyc/one.svg";
+import one from "/src/assets/icons/doctors-kyc/one.svg";
 import two from "/src/assets/icons/doctors-kyc/two.svg";
-import three from "../../assets/icons/doctors-kyc/three.svg";
+import three from "/src/assets/icons/doctors-kyc/three.svg";
 import four from "../../assets/icons/doctors-kyc/four.svg";
 import { BiIdCard } from "react-icons/bi";
 import { LuCamera } from "react-icons/lu";
