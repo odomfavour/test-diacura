@@ -23,6 +23,9 @@ import DoctorsKycStep3 from './components/doctors-kyc/DoctorsKycStep3';
 import DoctorsKycStep4 from './components/doctors-kyc/DoctorsKycStep4';
 import DoctorsKycStep5 from './components/doctors-kyc/DoctorsKycStep5';
 import DoctorsKycStep6 from './components/doctors-kyc/DoctorsKycStep6';
+import DoctorsKYCwelcome from './components/doctors-kyc/DoctorsKYCwelcome';
+import DoctorsKYCStepOne from './components/doctors-kyc/DoctorsKYCStepOne';
+import DoctorsKYCTwo from './components/doctors-kyc/DoctorsKYCTwo';
 
 const App = () => {
   return (
@@ -56,6 +59,9 @@ const App = () => {
       <Route path="/doctors-kyc-step-4" element={<DoctorsKycStep4 />} />
       <Route path="/doctors-kyc-step-5" element={<DoctorsKycStep5 />} />
       <Route path="/doctors-kyc-step-6" element={<DoctorsKycStep6 />} />
+      <Route path='/doctor-kyc-welcome' element={<DoctorsKYCwelcome />} />
+      <Route path='/doctors-kyc-one' element={<DoctorsKYCStepOne />} />
+      <Route path='/doctor-kyc-two' element={<DoctorsKYCTwo />} />
     </Routes>
   )
 }
