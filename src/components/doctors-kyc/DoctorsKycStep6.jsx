@@ -1,6 +1,6 @@
 import React from 'react'
 import DoctorsKYC from '../../layouts/DoctorsKYC'
-import frame from '../../assets/Icons/frame.png'
+import frame from '../../assets/frame.png'
 
 
 const DoctorsKycStep6 = () => {
