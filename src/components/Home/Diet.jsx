@@ -12,8 +12,8 @@ const Diet = () => {
         AOS.init();
     }, []); // Run this effect only once after the component mounts
     return (
-        <section>
-            <div className=" relative container mx-auto w-[85%] lg:flex lg:flex-row flex flex-col-reverse lg:pt-[90px] lg:gap-[250px]  lg:mb-[90px] mb-[60px] pt-[80px]
+        <section className="overflow-x-clip">
+            <div className=" relative container mx-auto w-[85%] lg:flex lg:flex-row flex flex-col-reverse lg:pt-[90px] lg:gap-[320px]  lg:mb-[90px] mb-[60px] pt-[80px]
             ">
                 <div className="pt-[35px]">
                     <h2 className=" lg:w-[487px] text-[#232323] font-Open-sans lg:text-[48px]  text-[24px] font-bold " data-aos="fade-right">Diet plans</h2>
@@ -25,7 +25,7 @@ const Diet = () => {
                     data-aos-easing="linear"
                     data-aos-duration="1500">
                     <img className="z-[50px] lg:ml-10 " src={doc} alt="" />
-                    <img className=" lg:flex md:flex hidden absolute z-[-50] top-[290px] right-[-117px]" data-aos="fade-down" src={icon} alt="icon" />
+                    <img className=" lg:flex md:flex hidden absolute z-[-50] top-[290px] right-[-157px]" data-aos="fade-down" src={icon} alt="icon" />
 
                 </div>
 

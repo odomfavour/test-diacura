@@ -11,7 +11,7 @@ const About = () => {
         AOS.init();
     }, []); // Run this effect only once after the component mounts
     return (
-        <section className="bg-[#094063]">
+        <section className="bg-[#094063] overflow-x-clip">
 
             <div className="container mx-auto w-[85%] lg:mb-3 pb-[80px]">
 

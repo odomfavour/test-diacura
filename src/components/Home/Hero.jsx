@@ -17,9 +17,9 @@ const Hero = () => {
     }, []); // Run this effect only once after the component mounts
 
     return (
-        <section>
+        <section className="overflow-x-clip">
             <div className="container mx-auto w-[85%]">
-                <div className="lg:flex lg:flex-row flex flex-col-reverse lg:pt-[90px] lg:gap-[140px] lg:mb-[90px] mb-[40px] pt-6">
+                <div className="lg:flex lg:flex-row flex flex-col-reverse lg:pt-[90px] lg:gap-[220px] lg:mb-[90px] mb-[40px] pt-6">
 
                     <div>
                         <h3 className="lg:text-[20px] lg:mt-0 mt-3 font-Open-sans font-extrabold text-[14px] " data-aos="fade-left">Welcome onboard</h3>

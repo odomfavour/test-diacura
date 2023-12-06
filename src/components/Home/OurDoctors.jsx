@@ -16,7 +16,7 @@ const OurDoctors = () => {
     AOS.init();
   }, []); // Run this effect only once after the component mounts
   return (
-    <section>
+    <section className="overflow-x-clip">
       <div className="max-w-[35rem] lg:max-w-[75.0625rem]  mx-auto px-[1.5rem] mb-[7.19rem] lg:mb-[11.81rem] mt-[6.25rem] lg:mt-[7.88rem]">
         <div className="text-center">
           <h2 className="text-[1.5rem] lg:text-[3rem] font-bold leading-normal mb-[3.5rem] lg:mb-[5.56rem]">
@@ -30,7 +30,7 @@ const OurDoctors = () => {
               alt="A doctor"
               className="w-full lg:h-full lg:rounded-l-[0.875rem] z-[1000px]"
             />
-            <img className=" absolute top-[160px] z-[-80] left-[-214px] lg:flex md:flex hidden" src={icon} alt="" />
+            <img className=" absolute top-[160px] z-[-80] left-[-254px] lg:flex md:flex hidden" src={icon} alt="" />
           </div>
           <div className="lg:w-[40.5625rem]">
             <h4 className="text-[#232323] text-[1.125rem] lg:text-[1.5rem] font-bold leading-normal mb-[0.5rem] lg:mb-[0.88rem]">
