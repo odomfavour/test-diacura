@@ -2,9 +2,11 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState, useEffect } from "react";
 import check_icon from "../../src/assets/images/check_icon.svg";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 function LoginSuccess({ isUserLoggedIn }) {
   let [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate()
 
   function closeModal() {
     setIsOpen(false);
@@ -16,6 +18,11 @@ function LoginSuccess({ isUserLoggedIn }) {
 
   useEffect(() => {
     setIsOpen(isUserLoggedIn);
+    setTimeout(() => {
+      console.log("This will run after a 2-second delay");
+      // Call the next function here
+      isUserLoggedIn === true ? navigate("/patient-dashboard") : ''
+    }, 2000);
   }, [isUserLoggedIn]);
 
   return (

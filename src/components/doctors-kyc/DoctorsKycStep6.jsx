@@ -1,6 +1,6 @@
 import React from 'react'
 import DoctorsKYC from '../../layouts/DoctorsKYC'
-import frame from '../../assets/Icons/frame.png'
+// import frame from '../../assets/frame.png'
 
 
 const DoctorsKycStep6 = () => {
@@ -16,7 +16,7 @@ const DoctorsKycStep6 = () => {
           <p className='text-[.7rem] mt-[1rem]'>Kindly upload the result of your medical evaluation assessment..</p>
 
          <figure className='border-dashed border-[.2rem] rounded-[.4rem] mt-[1rem] lg:py-[6rem] sm:py-[6rem] py-[3rem] text-center'>
-          <img src={frame} alt="cloud" className='mx-auto'/>
+          {/* <img src={frame} alt="cloud" className='mx-auto'/> */}
           <figcaption className='text-[.8rem]'><strong>Drag and drop files or <span className='text-[#107bc0]'>browse</span></strong></figcaption>
           <p className='text-[.6rem] pt-[.3rem]'>(jpg, png, or pdf format only)</p>
         </figure>

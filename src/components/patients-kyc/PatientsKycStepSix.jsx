@@ -55,6 +55,13 @@ const PatientsKycStepSix = () => {
     } else {
       setFormError(true);
     }
+
+    // A Quickfix for navigating to dashboard, since I don't have time to understand your code
+    setTimeout(() => {
+      console.log("This will run after a 2-second delay");
+      // Call the next function here
+      toDashboard();
+    }, 2000);
   };
 
   return (
