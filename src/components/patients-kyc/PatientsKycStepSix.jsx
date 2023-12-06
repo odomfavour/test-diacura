@@ -25,6 +25,7 @@ const PatientsKycStepSix = () => {
         {
           headers: {
             "Content-Type": "appliction/json",
+            "Authorization": "Bearer ${authToken}"
           },
         }
       );
