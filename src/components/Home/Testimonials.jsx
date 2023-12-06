@@ -14,7 +14,7 @@ const Testimonials = () => {
     AOS.init();
   }, []); // Run this effect only once after the component mounts
   return (
-    <section>
+    <section className="overflow-x-clip">
       <div className="relative lg:flex justify-between items-center bg-[#F5FBFE] pt-[5rem] pb-[7.0625rem] pr-[1.53125rem] pl-[1.46875rem] lg:gap-[8.62rem] lg:py-[8.56rem] xl:pl-[5.81rem] xl:pr-[6.12rem] text-center lg:text-left">
         <div className="lg:max-w-[29.375rem]">
           <h2 className="text-[1.5rem] xl:text-[2.5rem] text-[#020D14] font-bold leading-normal mb-[2rem] lg:mb-[2.44rem]" data-aos="fade-right">

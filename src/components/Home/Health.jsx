@@ -12,8 +12,8 @@ const Health = () => {
         AOS.init();
     }, []); // Run this effect only once after the component mounts
     return (
-        <section>
-            <div className=" relative container mx-auto w-[85%] lg:flex lg:flex-row flex flex-col lg:pt-[90px] lg:gap-[250px]  lg:mb-[90px] mb-[30px] pt-[50px]
+        <section className="overflow-x-clip">
+            <div className=" relative container mx-auto w-[85%] lg:flex lg:flex-row flex flex-col lg:pt-[90px] lg:gap-[270px]  lg:mb-[90px] mb-[30px] pt-[50px]
             ">
                 <div >
                     <img className="z-[50px] lg:ml-[-10px] " src={doc} alt="" data-aos="flip-left" data-aos-offset="300"

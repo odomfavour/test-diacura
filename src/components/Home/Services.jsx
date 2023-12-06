@@ -11,8 +11,8 @@ const Services = () => {
         AOS.init();
     }, []); // Run this effect only once after the component mounts
     return (
-        <section>
-            <div className=" relative container mx-auto w-[85%] lg:flex lg:flex-row flex flex-col-reverse lg:pt-[90px] lg:gap-[250px]  lg:mb-[90px] mb-[30px] pt-[80px]
+        <section className="overflow-x-clip">
+            <div className=" relative container mx-auto w-[85%] lg:flex lg:flex-row flex flex-col-reverse lg:pt-[90px] lg:gap-[320px]  lg:mb-[90px] mb-[30px] pt-[80px]
             ">
                 <div className="pt-[35px]" >
                     <h2 className=" lg:w-[487px] text-[#232323] font-Open-sans lg:text-[48px]  text-[24px] font-bold " data-aos="fade-right">Counselling Services</h2>
@@ -22,7 +22,7 @@ const Services = () => {
                 </div>
                 <div data-aos="fade-down" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                     <img className="z-[50px] lg:ml-10 " src={doc} alt="" />
-                    <img className=" lg:flex md:flex hidden absolute z-[-50] top-[-160px] right-[-117px]" src={icon} alt="icon" />
+                    <img className=" lg:flex md:flex hidden absolute z-[-50] top-[-160px] right-[-159px]" src={icon} alt="icon" />
 
                 </div>
 
