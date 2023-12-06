@@ -11,10 +11,10 @@ const ForgotPassword = () => {
   
   const handleForgotPassword = async () => {
     console.log(userEmail)
-    const email = userEmail
+    // const email = userEmail
     try {
       const response = await axios.post("/api/auth/forgot-password", {
-        email,
+        "email": userEmail,
       },
       {
         headers: {
