@@ -1,9 +1,9 @@
 import DoctorsKYC from "/src/layouts/DoctorsKYC";
 import { MdAccessTime } from "react-icons/md";
-import one from "/src/assets/icons/doctors-kyc/one.svg";
-import two from "/src/assets/icons/doctors-kyc/two.svg";
-import three from "/src/assets/icons/doctors-kyc/three.svg";
-import four from "/src/assets/icons/doctors-kyc/four.svg";
+// import one from "/src/assets/icons/doctors-kyc/one.svg";
+// import two from "/src/assets/icons/doctors-kyc/two.svg";
+// import three from "/src/assets/icons/doctors-kyc/three.svg";
+// import four from "/src/assets/icons/doctors-kyc/four.svg";
 import { BiIdCard } from "react-icons/bi";
 import { LuCamera } from "react-icons/lu";
 import { Link } from "react-router-dom";
@@ -11,22 +11,22 @@ import { Link } from "react-router-dom";
 const steps = [
     {
         id: 1,
-        src: one,
+        // src: one,
         title: 'Fill in your personal information'
     },
     {
         id: 2,
-        src: two,
+        // src: two,
         title: 'Upload a proof of identity'
     },
     {
         id: 3,
-        src: three,
+        // src: three,
         title: 'Take a selfie'
     },
     {
         id: 4,
-        src: four,
+        // src: four,
         title: 'Take an evaluation test'
     }
 ]
@@ -53,7 +53,7 @@ const DoctorsKYCwelcome = () => {
                     {
                         steps.map((step) => (
                             <div key={step.id} className="mb-2 xl:mb-0 flex items-center gap-2">
-                                <img src={step.src} alt="Step one" />
+                                {/* <img src={step.src} alt="Step one" /> */}
                                 <p className="small-text">{step.title}</p>
                             </div>
                         ))
