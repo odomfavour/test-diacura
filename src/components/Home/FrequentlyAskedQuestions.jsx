@@ -60,7 +60,7 @@ const FrequentlyAskedQuestions = ({ align }) => {
   }, []); // Run this effect only once after the component mounts
   return (
     <section>
-      <div className="px-[1.5rem] py-[2.625rem] max-w-[74.8125rem] mx-auto">
+      <div className="px-[1.5rem] py-[2.625rem] max-w-[64.8125rem] mx-auto">
         <div className={align}>
           <h2 className="text-[1.5rem] font-bold leading-normal lg:text-[4rem] mb-[3.55rem] lg:mb-[4.88rem]">
             FAQs
@@ -75,16 +75,16 @@ const FrequentlyAskedQuestions = ({ align }) => {
               return (
                 <li
                   key={id}
-                  className="p-[1rem] lg:py-[3rem] lg:px-[2.5rem] border border-[#CCC] rounded-[0.25rem] lg:rounded-[0.5rem]"
+                  className="p-[1rem] lg:py-[2rem] lg:px-[1.5rem] border border-[#CCC] rounded-[0.25rem] lg:rounded-[0.5rem]"
                 >
                   <h3
                     onClick={() => openAnswer(id)}
-                    className={`text-base lg:text-[2rem] ${active ? "text-[#062D45]" : "text-[#666]"
+                    className={`text-base lg:text-[1.7rem] ${active ? "text-[#062D45]" : "text-[#666]"
                       } font-bold leading-normal flex justify-between items-center cursor-pointer`}
                   >
                     <span>{question}</span>
                     <FaChevronDown
-                      className={`text-[1.55rem]  transition-all duration-300 ${active
+                      className={`text-[1.5rem]  transition-all duration-300 ${active
                         ? "rotate-180 text-[#107BC0]"
                         : "rotate-0 text-[#5D5D5D]"
                         }`}
@@ -92,7 +92,7 @@ const FrequentlyAskedQuestions = ({ align }) => {
                   </h3>
                   <p
                     className={`${active ? "block" : "hidden"
-                      } mt-[1rem] lg:text-[1.5rem] lg:mt-[1.88rem] text-[#999] text-[0.75rem] font-semibold lg:font-normal leading-normal`}
+                      } mt-[1rem] lg:text-[1.35rem] lg:mt-[1.88rem] text-[#999] text-[0.75rem] font-semibold lg:font-normal leading-normal`}
                   >
                     {answer}
                   </p>
@@ -111,7 +111,7 @@ const FrequentlyAskedQuestions = ({ align }) => {
           </p>
           <Link
             to={"/contact-us"}
-            className=" hover:bg-[#9353e5] flex items-center justify-center mx-auto bg-[#107BC0] w-[9.0625rem] md:w-[11.25rem] h-[2.5rem] md:h-[3.5rem] px-[2rem] py-[0.75rem] md:py-[1.12rem] text-white text-[0.875rem] md:text-[1.25rem] font-bold leading-normal rounded-[0.25rem]"
+            className=" hover:bg-[#9353e5] flex items-center justify-center mx-auto bg-[#107BC0] w-[9.0625rem] md:w-[12.25rem] h-[2.5rem] md:h-[3.5rem] px-[2rem] py-[0.75rem] md:py-[1.12rem] text-white text-[0.875rem] md:text-[1.25rem] font-bold leading-normal rounded-[0.25rem]"
           >
             Contact Us
           </Link>

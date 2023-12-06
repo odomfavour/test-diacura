@@ -32,17 +32,17 @@ const Nav = () => {
         <div className={`${toggle ? 'visible' : 'invisible'} bg-white font-WorkSans absolute top-[4rem] right-0 w-full pt-4 pb-10 md:visible md:static md:flex md:items-center md:gap-6 md:justify-end md:p-0 md:w-auto max-[360px]:px-2 px-8`}>
           <ul className="md:flex items-center gap-x-12">
             <li className="text-sm text-[#666666] font-semibold transition ease-in-out delay-70 my-6">
-              <Link className="py-3" to="" onClick={disableHamburger}>Home</Link>
+              <Link className="py-3" to="/" onClick={disableHamburger}>Home</Link>
             </li>
             <li className="text-sm text-[#666666] font-semibold transition ease-in-out delay-70 my-6">
               <Link className="py-3" to={"/faq"} onClick={disableHamburger}>FAQ</Link>
             </li>
             <li className="text-sm text-[#666666] font-semibold transition ease-in-out delay-70 my-6">
-              <Link className="py-3" to="" onClick={disableHamburger}>Contact Us</Link>
+              <Link className="py-3" to="/contact-us" onClick={disableHamburger}>Contact Us</Link>
             </li>
-            <button className="bg-[#107bc0] hover:bg-[#9353e5] py-3 px-8 rounded-md w-3/4 sm:w-[40%] md:w-1/3 lg:w-auto max-[400px]:w-full" onClick={disableHamburger}>
+            <Link to="/login" className="bg-[#107bc0] hover:bg-[#9353e5] py-3 px-8 rounded-md w-3/4 sm:w-[40%] md:w-1/3 lg:w-auto max-[400px]:w-full" onClick={disableHamburger}>
               <p className="text-sm font-bold">Log in</p>
-            </button>
+            </Link>
           </ul>
         </div>
       </nav>

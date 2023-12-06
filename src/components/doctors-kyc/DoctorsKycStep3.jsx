@@ -27,7 +27,7 @@ const DoctorsKycStep3 = () => {
          <button className='px-[2.5rem] py-[.2rem] rounded-[.2rem] bg-[#107BC0] text-white'>Next</button>
         </div> */}
         <div>
-        <DoctorsKycButtons previous={"doctors-kyc-step-2"} next={"doctors-kyc-step-4"}/>
+        <DoctorsKycButtons previous={"doctor-kyc-two"} next={"doctors-kyc-step-4"}/>
         </div>
     </div>
   </div>
