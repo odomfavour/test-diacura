@@ -1,5 +1,5 @@
 import DoctorsKYCstep from "../../layouts/doctorsKYC/DoctorsKYCstep";
-import cloudUpload from "../../assets/Icons/doctors-kyc/cloud-upload.svg";
+import cloudUpload from "../../assets/icons/doctors-kyc/cloud-upload.svg";
 import DoctorsKYCButtons from "./DoctorsKYCstepButtons";
 import { useNavigate } from "react-router-dom";
 import DoctorsKYCFileUpload from "./DoctorsKYCFileUpload";
