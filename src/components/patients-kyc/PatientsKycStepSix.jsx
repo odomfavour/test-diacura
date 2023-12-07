@@ -13,7 +13,7 @@ const PatientsKycStepSix = () => {
   const [serverErrorMessage, setServerErrorMessage] = useState("");
   const { state } = UsePatientKycContext();
   const navigate = useNavigate();
-
+  const authToken = ""
   // Validate patients KYC information 
   const validatePatientKyc = async (data) => {
     try {
@@ -25,7 +25,7 @@ const PatientsKycStepSix = () => {
         {
           headers: {
             "Content-Type": "appliction/json",
-            "Authorization": "Bearer ${authToken}"
+            "Authorization": `Bearer ${authToken}`
           },
         }
       );
