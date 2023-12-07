@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Bin from "../../assets/bin.svg";
-import Exit from "../../assets/Exit.svg";
+// import Exit from "../../assets/Exit.svg"
 
 const NotificationPref = () => {
   return (
