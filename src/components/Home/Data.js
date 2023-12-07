@@ -1,6 +1,6 @@
-import icon from "/src/assets/Icons/medical-assistance 1.png";
-import icon1 from "/src/assets/Icons/lock-closed.png";
-import icon2 from "/src/assets/Icons/thumb-up.png";
+import icon from "/src/assets/icons/medical-assistance 1.png";
+import icon1 from "/src/assets/icons/lock-closed.png";
+import icon2 from "/src/assets/icons/thumb-up.png";
 // import icon3 from "/src/assets/frame.png";
 
 export const Data = [
