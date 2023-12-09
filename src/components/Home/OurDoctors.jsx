@@ -3,14 +3,13 @@ import doctor from "../../assets/images/home/doctor.jpg";
 import chevron_left from "../../assets/icons/home/chevron-left.svg";
 import chevron_right from "../../assets/icons/home/chevron-right.svg";
 import slide_count from "../../assets/icons/home/slide-count.svg";
-import icon from "/src/assets/images/home/doc-layer.png"
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import AOS styles
-import { useEffect } from 'react';
+import icon from "/src/assets/images/home/doc-layer.png";
+import AOS from "aos";
 
+import "aos/dist/aos.css"; // Import AOS styles
+import { useEffect } from "react";
 
 const OurDoctors = () => {
-
   useEffect(() => {
     // Initialize AOS
     AOS.init();
@@ -30,7 +29,11 @@ const OurDoctors = () => {
               alt="A doctor"
               className="w-full lg:h-full lg:rounded-l-[0.875rem] z-[1000px]"
             />
-            <img className=" absolute top-[160px] z-[-80] left-[-254px] lg:flex md:flex hidden" src={icon} alt="" />
+            <img
+              className=" absolute top-[160px] z-[-80] left-[-254px] lg:flex md:flex hidden"
+              src={icon}
+              alt=""
+            />
           </div>
           <div className="lg:w-[40.5625rem]">
             <h4 className="text-[#232323] text-[1.125rem] lg:text-[1.5rem] font-bold leading-normal mb-[0.5rem] lg:mb-[0.88rem]">
